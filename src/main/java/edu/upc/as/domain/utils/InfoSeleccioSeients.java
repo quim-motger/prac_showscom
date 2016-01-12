@@ -1,5 +1,7 @@
 package edu.upc.as.domain.utils;
 
+import edu.upc.as.domain.model.Moneda;
+
 import java.util.List;
 
 /**
@@ -7,7 +9,7 @@ import java.util.List;
  */
 public class InfoSeleccioSeients {
 
-    float preu;
-    List<String> canvis;
+    public float preu;
+    public List<Moneda> canvis;
 
 }

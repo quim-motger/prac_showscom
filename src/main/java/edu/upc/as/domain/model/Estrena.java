@@ -7,9 +7,9 @@ import java.util.Date;
  */
 public class Estrena extends Representacio {
 
-    private final int recarrec;
+    private final float recarrec;
 
-    public Estrena(Date data, float preu, int nombreSeientsLliures, Local local, int recarrec) {
+    public Estrena(Date data, float preu, int nombreSeientsLliures, Local local, float recarrec) {
         super(data, preu, nombreSeientsLliures, local);
         this.recarrec = recarrec;
     }
@@ -20,7 +20,7 @@ public class Estrena extends Representacio {
     }
 
     @Override
-    public int getRecarrec() {
+    public float getRecarrec() {
         return recarrec;
     }
 

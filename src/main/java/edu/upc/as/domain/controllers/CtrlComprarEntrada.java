@@ -1,12 +1,17 @@
 package edu.upc.as.domain.controllers;
 
-import edu.upc.as.domain.model.TipusSessio;
+import edu.upc.as.domain.adapter.AdapterFactory;
+import edu.upc.as.domain.datainterface.CtrlSeientsEnRepresentacio;
+import edu.upc.as.domain.datainterface.DataFactory;
+import edu.upc.as.domain.model.*;
 import edu.upc.as.domain.utils.InfoOcupacio;
 import edu.upc.as.domain.utils.InfoRepresentacio;
 import edu.upc.as.domain.utils.InfoSeleccioSeients;
 import javafx.util.Pair;
 
+import javax.xml.crypto.Data;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -19,7 +24,7 @@ public class CtrlComprarEntrada {
     private String nomLocal;
     private TipusSessio sessio;
     private int nombEspectadors;
-    private List<Pair<Integer, Integer>> seients;
+    private List<InfoOcupacio> seients;
     private float preu;
 
     public List<String> obteEspectacles() {
@@ -45,18 +50,55 @@ public class CtrlComprarEntrada {
         return null;
     }
 
-    public List<InfoSeleccioSeients> seleccionarSeients(List<InfoOcupacio> seients) {
-        //TODO
-        return null;
+    public InfoSeleccioSeients seleccionarSeients(List<InfoOcupacio> seients) {
+        this.seients = seients;
+        preu = DataFactory
+                .getInstance()
+                .getCtrlRepresentacio()
+                .getRepresentacio(nomLocal, sessio)
+                .calcularPreuEntrada() * nombEspectadors;
+        InfoSeleccioSeients info = new InfoSeleccioSeients();
+        info.preu = preu;
+        info.canvis = Shows.getInstance().getCanvis();
+        return info;
     }
 
-    public float obtePreuMoneda(String moneda) {
-        //TODO
-        return 0;
+    public float obtePreuMoneda(Moneda moneda) {
+        preu = AdapterFactory
+                .getInstance()
+                .getConvertor()
+                .conversionRate(Shows.getInstance().getDivisa(), moneda) * preu;
+        return preu;
     }
 
     public void pagament(String dni, int codiB, String numCompte) {
-        //TODO
+        Date avui = new Date();
+        int cbs = Shows.getInstance().getCodiBanc();
+        String ncs = Shows.getInstance().getNumCompte();
+        boolean autoritzat = AdapterFactory
+                .getInstance()
+                .getBank()
+                .autoritza(dni, codiB, numCompte, preu, cbs, ncs, avui);
+        if (!autoritzat) /*throw new pagamentNoAutoritzat()*/; //TODO
+
+
+        CtrlSeientsEnRepresentacio sCtrl = DataFactory
+                .getInstance()
+                .getCtrlSeientsEnRepresentacio();
+
+        List<SeientEnRepresentacio> seientsEnR = new LinkedList<SeientEnRepresentacio>();
+
+        for (InfoOcupacio seient : seients) {
+            seientsEnR.add(sCtrl.getSeientEnRepresentacio(nomLocal, sessio, seient.columna, seient.fila));
+        }
+
+        Entrada entrada = new Entrada(dni, nombEspectadors, avui, preu);
+
+        Representacio r = DataFactory
+                .getInstance()
+                .getCtrlRepresentacio()
+                .getRepresentacio(nomLocal, sessio);
+        entrada.setRepresentacioISeients(r, seientsEnR);
     }
 
 }

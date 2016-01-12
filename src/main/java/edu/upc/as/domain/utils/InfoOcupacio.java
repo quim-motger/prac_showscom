@@ -5,7 +5,7 @@ package edu.upc.as.domain.utils;
  */
 public class InfoOcupacio {
 
-    int fila;
-    int columna;
+    public int fila;
+    public int columna;
 
 }

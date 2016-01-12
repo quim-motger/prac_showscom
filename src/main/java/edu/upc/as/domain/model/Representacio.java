@@ -54,16 +54,15 @@ public class Representacio {
         this.local = local;
     }
 
-    public int calcularPreuEntrada() {
-        //TODO calcularPreuEntrada
-        return 0;
+    public float calcularPreuEntrada() {
+        return preu + getRecarrec() + Shows.getInstance().getComissio();
     }
 
     /*
     TODO getSeientsLliures
      */
 
-    public int getRecarrec() {
+    public float getRecarrec() {
         return 0;
     }
 
