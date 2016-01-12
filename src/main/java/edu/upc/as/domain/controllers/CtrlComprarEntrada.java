@@ -23,13 +23,21 @@ public class CtrlComprarEntrada {
     private float preu;
 
     public List<String> obteEspectacles() {
-        //TODO
-        return null;
+        return FactoriaCasosUs
+                .getInstance()
+                .getCtrlConsultarRepresentacions()
+                .consultaEspectacles();
     }
 
     public List<InfoRepresentacio> obteRepresentacions(String titol, Date data) {
-        //TODO
-        return null;
+        this.titol = titol;
+        this.data = data;
+        List<InfoRepresentacio> inf = FactoriaCasosUs
+                .getInstance()
+                .getCtrlConsultarRepresentacions()
+                .consultaRepresentacions(titol, data);
+        if (inf.isEmpty()) /*throw new noHiHaRepresentacions()*/; //TODO
+        return inf;
     }
 
     public List<InfoOcupacio> obteOcupacio(String nomLocal, String sessio, int nombEspectadors) {

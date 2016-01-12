@@ -1,5 +1,9 @@
 package edu.upc.as.domain.model;
 
+import edu.upc.as.domain.utils.InfoRepresentacio;
+
+import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -9,6 +13,7 @@ public class Espectacle {
 
     private String titol;
     private int participants;
+    private List<Representacio> representacions;
 
     public Espectacle(String titol, int participants) {
         this.titol = titol;
@@ -31,5 +36,15 @@ public class Espectacle {
         this.titol = titol;
     }
 
+    public List<InfoRepresentacio> getRepresentacions(Date data) {
+        List<InfoRepresentacio> reps = new LinkedList<InfoRepresentacio>();
+        InfoRepresentacio info;
+        for (Representacio r : representacions) {
+            info = new InfoRepresentacio();
+            if (!r.isData(data, info))
+                reps.add(info);
+        }
+        return reps;
+    }
 
 }

@@ -12,4 +12,25 @@ public class DataFactory {
 
     private DataFactory() {
     }
+
+    public CtrlEntrada getCtrlEntrada() {
+        return null;
+    }
+
+    public CtrlEspectacle getCtrlEspectacle() {
+        return null;
+    }
+
+    public CtrlLocal getCtrlLocal() {
+        return null;
+    }
+
+    public CtrlRepresentacio getCtrlRepresentacio() {
+        return null;
+    }
+
+    public CtrlSeientsEnRepresentacio getCtrlSeientsEnRepresentacio() {
+        return null;
+    }
+
 }

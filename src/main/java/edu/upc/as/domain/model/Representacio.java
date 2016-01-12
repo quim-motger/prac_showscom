@@ -1,5 +1,7 @@
 package edu.upc.as.domain.model;
 
+import edu.upc.as.domain.utils.InfoRepresentacio;
+
 import java.util.Date;
 
 /**
@@ -11,6 +13,7 @@ public class Representacio {
     private float preu;
     private int nombreSeientsLliures;
     private Local local;
+    private Sessio sessio;
 
     public Representacio(Date data, float preu, int nombreSeientsLliures, Local local) {
         this.data = data;
@@ -61,13 +64,28 @@ public class Representacio {
      */
 
     public int getRecarrec() {
-        //TODO getRecarrec
         return 0;
     }
 
     public void ocupa(int nOcupants) {
         //TODO ocupa
     }
+
+    public boolean isEstrena() {
+        return false;
+    }
+
+    public boolean isData(Date data, InfoRepresentacio info) {
+        if (data.equals(this.data))
+            return false;
+        info.nomLocal = local.getNom();
+        info.sessio = sessio.getSessio();
+        info.nombreSeientsLliures = nombreSeientsLliures;
+        info.estrena = isEstrena();
+        info.preu = preu;
+        return true;
+    }
+
 
     /*
     TODO isData
