@@ -8,7 +8,12 @@ import edu.upc.as.domain.utils.InfoOcupacio;
 public class SeientEnRepresentacio {
 
     private Estat estat;
-    private Seient seient;
+    private final Seient seient;
+
+    public SeientEnRepresentacio(Seient seient) {
+        this.seient = seient;
+        estat = Estat.lliure;
+    }
 
     public void ocupa() {
         estat = Estat.ocupat;

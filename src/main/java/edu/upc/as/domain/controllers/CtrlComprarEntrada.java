@@ -19,11 +19,10 @@ import java.util.List;
 
 /**
  * Created by jmotger on 12/01/16.
+ * @author David
  */
 public class CtrlComprarEntrada {
 
-    private String titol;
-    private Date data;
     private String nomLocal;
     private TipusSessio sessio;
     private int nombEspectadors;
@@ -38,8 +37,6 @@ public class CtrlComprarEntrada {
     }
 
     public List<InfoRepresentacio> obteRepresentacions(String titol, Date data) throws NoHiHaRepresentacions {
-        this.titol = titol;
-        this.data = data;
         List<InfoRepresentacio> inf = FactoriaCasosUs
                 .getInstance()
                 .getCtrlConsultarRepresentacions()

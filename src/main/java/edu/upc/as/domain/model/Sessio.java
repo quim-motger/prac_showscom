@@ -5,7 +5,7 @@ package edu.upc.as.domain.model;
  */
 public class Sessio {
 
-    private TipusSessio sessio;
+    private final TipusSessio sessio;
 
     public Sessio(TipusSessio sessio) {
         this.sessio = sessio;
@@ -15,7 +15,4 @@ public class Sessio {
         return sessio;
     }
 
-    public void setSessio(TipusSessio sessio) {
-        this.sessio = sessio;
-    }
 }

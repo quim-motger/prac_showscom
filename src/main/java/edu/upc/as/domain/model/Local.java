@@ -5,8 +5,8 @@ package edu.upc.as.domain.model;
  */
 public class Local {
 
-    private String nom;
-    private String adreca;
+    private final String nom;
+    private final String adreca;
 
     public Local(String nom, String adreca) {
         this.nom = nom;
@@ -17,15 +17,8 @@ public class Local {
         return nom;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
     public String getAdreca() {
         return adreca;
     }
 
-    public void setAdreca(String adreca) {
-        this.adreca = adreca;
-    }
 }

@@ -1,5 +1,6 @@
 package edu.upc.as.domain.model;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -7,11 +8,11 @@ import java.util.List;
  */
 public class Shows {
 
-    private int codiBanc;
-    private String numCompte;
-    private Moneda divisa;
-    private List<Moneda> canvis;
-    private float comissio;
+    private final int codiBanc = -1;
+    private final String numCompte = "";
+    private final Moneda divisa = Moneda.EUR;
+    private final List<Moneda> canvis = new LinkedList<Moneda>();
+    private final float comissio = 0.0f;
 
     private static Shows ourInstance = new Shows();
 
@@ -41,4 +42,5 @@ public class Shows {
     public String getNumCompte() {
         return numCompte;
     }
+
 }

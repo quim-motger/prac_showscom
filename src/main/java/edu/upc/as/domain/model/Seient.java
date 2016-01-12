@@ -5,9 +5,9 @@ package edu.upc.as.domain.model;
  */
 public class Seient {
 
-    private int fila;
-    private int columna;
-    private Local local;
+    private final int fila;
+    private final int columna;
+    private final Local local;
 
     public Seient(int fila, int columna, Local local) {
         this.fila = fila;
@@ -19,23 +19,12 @@ public class Seient {
         return fila;
     }
 
-    public void setFila(int fila) {
-        this.fila = fila;
-    }
-
     public int getColumna() {
         return columna;
-    }
-
-    public void setColumna(int columna) {
-        this.columna = columna;
     }
 
     public Local getLocal() {
         return local;
     }
 
-    public void setLocal(Local local) {
-        this.local = local;
-    }
 }

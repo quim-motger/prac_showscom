@@ -8,28 +8,40 @@ import java.util.List;
  */
 public class Entrada {
 
-    private final String dni;
+    private final String identificador;
+    private final String dniClient;
     private final int nombEspectadors;
-    private final Date avui;
+    private final Date data;
     private final float preu;
     private Representacio representacio;
     private List<SeientEnRepresentacio> seientsEnRepresentacio;
 
-    public Entrada(String dni, int nombEspectadors, Date avui, float preu) {
-        this.dni = dni;
+    public Entrada(String dniClient, int nombEspectadors, Date data, float preu) {
+        this.dniClient = dniClient;
         this.nombEspectadors = nombEspectadors;
-        this.avui = avui;
+        this.data = data;
         this.preu = preu;
+        identificador = "";
     }
-
 
     public void setRepresentacioISeients(Representacio r, List<SeientEnRepresentacio> seientsEnR) {
         representacio = r;
         seientsEnRepresentacio = seientsEnR;
-        r.ocupa(seientsEnR.size());
-        for (SeientEnRepresentacio s : seientsEnR) {
+        r.ocupa(seientsEnRepresentacio.size());
+        for (SeientEnRepresentacio s : seientsEnRepresentacio) {
             s.ocupa();
         }
     }
 
+    public int getNombEspectadors() {
+        return nombEspectadors;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public float getPreu() {
+        return preu;
+    }
 }

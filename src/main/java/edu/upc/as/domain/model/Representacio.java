@@ -13,50 +13,36 @@ import java.util.List;
  */
 public class Representacio {
 
-    private Date data;
-    private float preu;
+    private final Date data;
+    private final float preu;
     private int nombreSeientsLliures;
-    private Local local;
-    private Sessio sessio;
-    private List<SeientEnRepresentacio> seientsEnRepresentacio;
+    private final Local local;
+    private final Sessio sessio;
+    private final List<SeientEnRepresentacio> seientsEnRepresentacio;
 
-    public Representacio(Date data, float preu, int nombreSeientsLliures, Local local) {
+    public Representacio(Date data, float preu, int nombreSeientsLliures, Local local, Sessio sessio) {
         this.data = data;
         this.preu = preu;
         this.nombreSeientsLliures = nombreSeientsLliures;
         this.local = local;
+        this.sessio = sessio;
+        seientsEnRepresentacio = new LinkedList<SeientEnRepresentacio>();
     }
 
     public Date getData() {
         return data;
     }
 
-    public void setData(Date data) {
-        this.data = data;
-    }
-
     public float getPreu() {
         return preu;
-    }
-
-    public void setPreu(float preu) {
-        this.preu = preu;
     }
 
     public int getNombreSeientsLliures() {
         return nombreSeientsLliures;
     }
 
-    public void setNombreSeientsLliures(int nombreSeientsLliures) {
-        this.nombreSeientsLliures = nombreSeientsLliures;
-    }
-
     public Local getLocal() {
         return local;
-    }
-
-    public void setLocal(Local local) {
-        this.local = local;
     }
 
     public float calcularPreuEntrada() {

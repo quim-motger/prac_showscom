@@ -9,8 +9,8 @@ public class Estrena extends Representacio {
 
     private final float recarrec;
 
-    public Estrena(Date data, float preu, int nombreSeientsLliures, Local local, float recarrec) {
-        super(data, preu, nombreSeientsLliures, local);
+    public Estrena(Date data, float preu, int nombreSeientsLliures, Local local, float recarrec, Sessio sessio) {
+        super(data, preu, nombreSeientsLliures, local, sessio);
         this.recarrec = recarrec;
     }
 

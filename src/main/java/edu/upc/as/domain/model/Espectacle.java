@@ -11,13 +11,14 @@ import java.util.List;
  */
 public class Espectacle {
 
-    private String titol;
+    private final String titol;
     private int participants;
     private List<Representacio> representacions;
 
     public Espectacle(String titol, int participants) {
         this.titol = titol;
         this.participants = participants;
+        representacions = new LinkedList<Representacio>();
     }
 
     public int getParticipants() {
@@ -30,10 +31,6 @@ public class Espectacle {
 
     public String getTitol() {
         return titol;
-    }
-
-    public void setTitol(String titol) {
-        this.titol = titol;
     }
 
     public List<InfoRepresentacio> getRepresentacions(Date data) {
