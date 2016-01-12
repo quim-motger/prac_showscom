@@ -7,7 +7,7 @@ import edu.upc.as.domain.model.Moneda;
  */
 public class ConvertorAdapter implements IConvertorAdapter {
 
-    public float conversionRate(Moneda divisa, Moneda moneda) {
+    public float conversionRate(String divisa, String moneda) {
         /* TODO
         return ServiceLocator
                 .getInstance()

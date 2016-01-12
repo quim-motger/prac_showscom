@@ -73,7 +73,7 @@ public class CtrlComprarEntrada {
         preu = AdapterFactory
                 .getInstance()
                 .getConvertor()
-                .conversionRate(Shows.getInstance().getDivisa(), moneda) * preu;
+                .conversionRate(Shows.getInstance().getDivisa().name(), moneda.name()) * preu;
         return preu;
     }
 

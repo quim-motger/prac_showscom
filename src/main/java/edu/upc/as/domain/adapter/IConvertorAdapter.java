@@ -7,6 +7,6 @@ import edu.upc.as.domain.model.Moneda;
  */
 public interface IConvertorAdapter {
 
-    float conversionRate(Moneda divisa, Moneda moneda);
+    float conversionRate(String divisa, String moneda);
 
 }
