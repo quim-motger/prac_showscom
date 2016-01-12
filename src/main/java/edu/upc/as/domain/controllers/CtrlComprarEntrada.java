@@ -69,7 +69,7 @@ public class CtrlComprarEntrada {
         return info;
     }
 
-    public float obtePreuMoneda(Moneda moneda) {
+    public float obtePreuMoneda(Moneda moneda) throws Exception {
         preu = AdapterFactory
                 .getInstance()
                 .getConvertor()
@@ -77,7 +77,7 @@ public class CtrlComprarEntrada {
         return preu;
     }
 
-    public void pagament(String dni, int codiB, String numCompte) throws PagamentNoAutoritzat {
+    public void pagament(String dni, int codiB, String numCompte) throws Exception {
         Date avui = new Date();
         int cbs = Shows.getInstance().getCodiBanc();
         String ncs = Shows.getInstance().getNumCompte();
