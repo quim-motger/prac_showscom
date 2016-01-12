@@ -6,5 +6,5 @@ package edu.upc.as.domain.model;
 public enum Moneda {
     EUR,
     USD,
-    GDP
+    GBP
 }
