@@ -13,4 +13,12 @@ public class AdapterFactory {
 
     private AdapterFactory() {
     }
+
+    public IConvertorAdapter getConvertor() {
+        return new ConvertorAdapter();
+    }
+
+    public IBankAdapter getBank() {
+        return new BankAdapter();
+    }
 }
