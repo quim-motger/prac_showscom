@@ -1,5 +1,8 @@
 package edu.upc.as.domain.adapter;
 
+import edu.upc.as.domain.serviceinterface.ServiceLocator;
+import edu.upc.as.domain.serviceinterface.SvBankService;
+
 import java.util.Date;
 
 /**
@@ -7,14 +10,11 @@ import java.util.Date;
  */
 public class BankAdapter implements IBankAdapter {
 
-    public boolean autoritza(String dni, int codiB, String numCompte, float imp, int codiBancShows, String numCompteShows, Date avui) {
-        /* TODO
-        return ServiceLocator
+    public boolean autoritza(String dni, int codiB, String numCompte, float imp, int codiBancShows, String numCompteShows, Date avui) throws Exception {
+        return ((SvBankService)ServiceLocator
                 .getInstance()
-                .find("BankService")
+                .find("BankService"))
                 .autoritza(dni, codiB, numCompte, imp, codiBancShows, numCompteShows, avui);
-         */
-        return false;
     }
 
 }

@@ -1,5 +1,6 @@
 package edu.upc.as.domain.adapter;
 
+import edu.upc.as.domain.exception.ServeiNoTrobat;
 import edu.upc.as.domain.model.Moneda;
 
 /**
@@ -7,6 +8,6 @@ import edu.upc.as.domain.model.Moneda;
  */
 public interface IConvertorAdapter {
 
-    float conversionRate(String divisa, String moneda);
+    float conversionRate(String divisa, String moneda) throws Exception;
 
 }
