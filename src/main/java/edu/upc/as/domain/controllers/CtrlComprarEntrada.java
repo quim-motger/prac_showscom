@@ -1,7 +1,7 @@
 package edu.upc.as.domain.controllers;
 
 import edu.upc.as.domain.adapter.AdapterFactory;
-import edu.upc.as.domain.datainterface.CtrlSeientsEnRepresentacio;
+import edu.upc.as.domain.datainterface.ICtrlSeientsEnRepresentacio;
 import edu.upc.as.domain.datainterface.DataFactory;
 import edu.upc.as.domain.exception.NoHiHaRepresentacions;
 import edu.upc.as.domain.exception.PagamentNoAutoritzat;
@@ -10,9 +10,7 @@ import edu.upc.as.domain.model.*;
 import edu.upc.as.domain.utils.InfoOcupacio;
 import edu.upc.as.domain.utils.InfoRepresentacio;
 import edu.upc.as.domain.utils.InfoSeleccioSeients;
-import javafx.util.Pair;
 
-import javax.xml.crypto.Data;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -89,7 +87,7 @@ public class CtrlComprarEntrada {
             throw new PagamentNoAutoritzat(dni, numCompte, codiB, ncs, cbs, preu, avui);
 
 
-        CtrlSeientsEnRepresentacio sCtrl = DataFactory
+        ICtrlSeientsEnRepresentacio sCtrl = DataFactory
                 .getInstance()
                 .getCtrlSeientsEnRepresentacio();
 

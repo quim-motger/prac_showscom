@@ -5,7 +5,7 @@ import edu.upc.as.domain.model.Entrada;
 /**
  * Created by jmotger on 12/01/16.
  */
-public interface CtrlEntrada {
+public interface ICtrlEntrada {
 
     Entrada getEntrada(String id);
 

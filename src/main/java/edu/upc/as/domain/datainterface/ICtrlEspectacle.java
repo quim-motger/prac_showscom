@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by jmotger on 12/01/16.
  */
-public interface CtrlEspectacle {
+public interface ICtrlEspectacle {
 
     Espectacle getEspectacle(String nom);
     List<Espectacle> getAll();
