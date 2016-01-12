@@ -7,7 +7,6 @@ import java.util.Date;
  */
 public interface IBankAdapter {
 
-    boolean autoritza(String dni, int codiB, String numCompte, float imp,
-                             int codiBancShows, String numCompteShows, Date dAvui);
+    boolean autoritza(String dni, int codiB, String numCompte, float imp, int codiBancShows, String numCompteShows, Date avui);
 
 }

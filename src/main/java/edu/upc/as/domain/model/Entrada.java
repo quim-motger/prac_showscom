@@ -12,6 +12,8 @@ public class Entrada {
     private final int nombEspectadors;
     private final Date avui;
     private final float preu;
+    private Representacio representacio;
+    private List<SeientEnRepresentacio> seientsEnRepresentacio;
 
     public Entrada(String dni, int nombEspectadors, Date avui, float preu) {
         this.dni = dni;
@@ -22,6 +24,12 @@ public class Entrada {
 
 
     public void setRepresentacioISeients(Representacio r, List<SeientEnRepresentacio> seientsEnR) {
-
+        representacio = r;
+        seientsEnRepresentacio = seientsEnR;
+        r.ocupa(seientsEnR.size());
+        for (SeientEnRepresentacio s : seientsEnR) {
+            s.ocupa();
+        }
     }
+
 }

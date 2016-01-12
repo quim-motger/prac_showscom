@@ -3,6 +3,8 @@ package edu.upc.as.domain.controllers;
 import edu.upc.as.domain.adapter.AdapterFactory;
 import edu.upc.as.domain.datainterface.CtrlSeientsEnRepresentacio;
 import edu.upc.as.domain.datainterface.DataFactory;
+import edu.upc.as.domain.exception.NoHiHaRepresentacions;
+import edu.upc.as.domain.exception.PagamentNoAutoritzat;
 import edu.upc.as.domain.model.*;
 import edu.upc.as.domain.utils.InfoOcupacio;
 import edu.upc.as.domain.utils.InfoRepresentacio;
@@ -34,14 +36,15 @@ public class CtrlComprarEntrada {
                 .consultaEspectacles();
     }
 
-    public List<InfoRepresentacio> obteRepresentacions(String titol, Date data) {
+    public List<InfoRepresentacio> obteRepresentacions(String titol, Date data) throws NoHiHaRepresentacions {
         this.titol = titol;
         this.data = data;
         List<InfoRepresentacio> inf = FactoriaCasosUs
                 .getInstance()
                 .getCtrlConsultarRepresentacions()
                 .consultaRepresentacions(titol, data);
-        if (inf.isEmpty()) /*throw new noHiHaRepresentacions()*/; //TODO
+        if (inf.isEmpty())
+            throw new NoHiHaRepresentacions(titol, data);
         return inf;
     }
 
@@ -71,7 +74,7 @@ public class CtrlComprarEntrada {
         return preu;
     }
 
-    public void pagament(String dni, int codiB, String numCompte) {
+    public void pagament(String dni, int codiB, String numCompte) throws PagamentNoAutoritzat {
         Date avui = new Date();
         int cbs = Shows.getInstance().getCodiBanc();
         String ncs = Shows.getInstance().getNumCompte();
@@ -79,7 +82,8 @@ public class CtrlComprarEntrada {
                 .getInstance()
                 .getBank()
                 .autoritza(dni, codiB, numCompte, preu, cbs, ncs, avui);
-        if (!autoritzat) /*throw new pagamentNoAutoritzat()*/; //TODO
+        if (!autoritzat)
+            throw new PagamentNoAutoritzat(dni, numCompte, codiB, ncs, cbs, preu, avui);
 
 
         CtrlSeientsEnRepresentacio sCtrl = DataFactory

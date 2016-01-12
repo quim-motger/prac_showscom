@@ -67,7 +67,7 @@ public class Representacio {
     }
 
     public void ocupa(int nOcupants) {
-        //TODO ocupa
+        nombreSeientsLliures -= nOcupants;
     }
 
     public boolean isEstrena() {

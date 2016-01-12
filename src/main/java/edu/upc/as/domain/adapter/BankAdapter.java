@@ -7,7 +7,13 @@ import java.util.Date;
  */
 public class BankAdapter implements IBankAdapter {
 
-    public boolean autoritza(String dni, int codiB, String numCompte, float imp, int codiBancShows, String numCompteShows, Date dAvui) {
+    public boolean autoritza(String dni, int codiB, String numCompte, float imp, int codiBancShows, String numCompteShows, Date avui) {
+        /* TODO
+        return ServiceLocator
+                .getInstance()
+                .find("BankService")
+                .autoritza(dni, codiB, numCompte, imp, codiBancShows, numCompteShows, avui);
+         */
         return false;
     }
 
