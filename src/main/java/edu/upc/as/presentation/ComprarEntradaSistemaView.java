@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by jmotger on 12/01/16.
  */
-public class ComprarEntradaSistemaSuportView implements ComprarEntradaView {
+public class ComprarEntradaSistemaView implements ComprarEntradaView {
 
     public void mostraRepresentacions(List<InfoRepresentacio> repre) {
 

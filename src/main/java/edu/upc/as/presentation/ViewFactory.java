@@ -13,4 +13,8 @@ public class ViewFactory {
     private ViewFactory() {
     }
 
+    public ComprarEntradaView getComprarEntradaView() {
+        return new ComprarEntradaSistemaView();
+    }
+
 }
