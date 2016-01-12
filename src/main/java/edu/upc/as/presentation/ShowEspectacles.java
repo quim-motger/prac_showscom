@@ -14,6 +14,7 @@ public class ShowEspectacles extends JFrame {
     private JButton okButton;
     private JButton cancelButton;
     private JPanel rootPanel;
+    private JLabel errorMessage;
 
     public ShowEspectacles() {
         super("Comprar Entrada");
@@ -23,6 +24,11 @@ public class ShowEspectacles extends JFrame {
         cancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
+            }
+        });
+        okButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                errorMessage.setText("Encara no hi ha res fet! :)");
             }
         });
         setVisible(true);
