@@ -5,6 +5,7 @@ import edu.upc.as.domain.datainterface.CtrlSeientsEnRepresentacio;
 import edu.upc.as.domain.datainterface.DataFactory;
 import edu.upc.as.domain.exception.NoHiHaRepresentacions;
 import edu.upc.as.domain.exception.PagamentNoAutoritzat;
+import edu.upc.as.domain.exception.SeientsNoDisponibles;
 import edu.upc.as.domain.model.*;
 import edu.upc.as.domain.utils.InfoOcupacio;
 import edu.upc.as.domain.utils.InfoRepresentacio;
@@ -48,9 +49,14 @@ public class CtrlComprarEntrada {
         return inf;
     }
 
-    public List<InfoOcupacio> obteOcupacio(String nomLocal, String sessio, int nombEspectadors) {
-        //TODO
-        return null;
+    public List<InfoOcupacio> obteOcupacio(String nomLocal, TipusSessio sessio, int nombEspectadors) throws SeientsNoDisponibles {
+        this.nomLocal = nomLocal;
+        this.sessio = sessio;
+        this.nombEspectadors = nombEspectadors;
+        return FactoriaCasosUs
+                .getInstance()
+                .getCtrlConsultarOcupacio()
+                .consultaOcupacio(nomLocal, sessio, nombEspectadors);
     }
 
     public InfoSeleccioSeients seleccionarSeients(List<InfoOcupacio> seients) {
