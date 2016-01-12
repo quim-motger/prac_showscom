@@ -6,7 +6,7 @@ import edu.upc.as.domain.model.TipusSessio;
 /**
  * Created by jmotger on 12/01/16.
  */
-public interface CtrlRepresentacio {
+public interface ICtrlRepresentacio {
 
     Representacio getRepresentacio(String nomL, TipusSessio sessio);
 

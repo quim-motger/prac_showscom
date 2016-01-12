@@ -13,23 +13,23 @@ public class DataFactory {
     private DataFactory() {
     }
 
-    public CtrlEntrada getCtrlEntrada() {
+    public ICtrlEntrada getCtrlEntrada() {
         return null;
     }
 
-    public CtrlEspectacle getCtrlEspectacle() {
+    public ICtrlEspectacle getCtrlEspectacle() {
         return null;
     }
 
-    public CtrlLocal getCtrlLocal() {
+    public ICtrlLocal getCtrlLocal() {
         return null;
     }
 
-    public CtrlRepresentacio getCtrlRepresentacio() {
+    public ICtrlRepresentacio getCtrlRepresentacio() {
         return null;
     }
 
-    public CtrlSeientsEnRepresentacio getCtrlSeientsEnRepresentacio() {
+    public ICtrlSeientsEnRepresentacio getCtrlSeientsEnRepresentacio() {
         return null;
     }
 
