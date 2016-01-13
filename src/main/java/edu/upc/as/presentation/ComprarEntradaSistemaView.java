@@ -10,6 +10,12 @@ import java.util.List;
  */
 public class ComprarEntradaSistemaView implements ComprarEntradaView {
 
+    ComprarEntradaForm s;
+
+    public void init(ComprarEntradaController c) {
+        s = new ComprarEntradaForm(c);
+    }
+
     public void mostraRepresentacions(List<InfoRepresentacio> repre) {
 
     }

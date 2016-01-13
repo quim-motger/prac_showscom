@@ -11,6 +11,7 @@ import java.util.List;
  */
 public interface ComprarEntradaView {
 
+    void init(ComprarEntradaController c);
     void mostraRepresentacions(List<InfoRepresentacio> repre);
     void mostraOcupacions(List<InfoOcupacio> ocup);
     void mostraPreu(float preu, List<String> canvis);

@@ -1,6 +1,6 @@
 package edu.upc.as;
 
-import edu.upc.as.presentation.ShowEspectacles;
+import edu.upc.as.presentation.ComprarEntradaController;
 
 /**
  * Created by jmotger on 12/01/16.
@@ -8,7 +8,8 @@ import edu.upc.as.presentation.ShowEspectacles;
 public class Main {
 
     public static void main(String[] args) {
-        ShowEspectacles s = new ShowEspectacles();
+        ComprarEntradaController c = new ComprarEntradaController();
+        c.init();
     }
 
 }

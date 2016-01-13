@@ -2,6 +2,7 @@ package edu.upc.as.presentation;
 
 import edu.upc.as.domain.utils.InfoOcupacio;
 
+import javax.swing.text.View;
 import java.util.Date;
 import java.util.List;
 
@@ -11,6 +12,10 @@ import java.util.List;
 public class ComprarEntradaController {
 
     private int nEspec;
+
+    public void init() {
+        ViewFactory.getInstance().getComprarEntradaView().init(this);
+    }
 
     public void prOkConsultaRepresentacions(String titol, Date data) {
 
