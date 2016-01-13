@@ -32,7 +32,7 @@ public class ComprarEntradaController {
     }
 
     public void prOkSeleccionaSeients(List<InfoOcupacio> seients) {
-
+        view.mostraPreu(0, null);
     }
 
     public void prObtePreuMoneda(String moneda) {

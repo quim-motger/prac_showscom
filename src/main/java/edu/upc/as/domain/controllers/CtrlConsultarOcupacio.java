@@ -17,11 +17,11 @@ public class CtrlConsultarOcupacio {
         return null;
     }
 
-    public List<InfoOcupacio> consultaOcupacio(String nomLocal, TipusSessio sessio, int nombEspectadors) throws SeientsNoDisponibles {
+    public List<InfoOcupacio> consultaOcupacio(String nomLocal, String sessio, int nombEspectadors) throws SeientsNoDisponibles {
         return DataFactory
                 .getInstance()
                 .getCtrlRepresentacio()
-                .getRepresentacio(nomLocal, sessio)
+                .getRepresentacio(nomLocal, TipusSessio.valueOf(sessio))
                 .getSeientsLliures(nombEspectadors);
     }
 
