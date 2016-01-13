@@ -1,6 +1,9 @@
 package edu.upc.as.presentation;
 
+import edu.upc.as.domain.controllers.FactoriaCasosUs;
+import edu.upc.as.domain.model.Representacio;
 import edu.upc.as.domain.utils.InfoOcupacio;
+import edu.upc.as.domain.utils.InfoRepresentacio;
 
 import javax.swing.text.View;
 import java.util.Date;
@@ -11,14 +14,17 @@ import java.util.List;
  */
 public class ComprarEntradaController {
 
+    ComprarEntradaView view;
+
     private int nEspec;
 
-    public void init() {
-        ViewFactory.getInstance().getComprarEntradaView().init(this);
+    public ComprarEntradaController() {
+        view = ViewFactory.getInstance().getComprarEntradaView();
+        view.init();
     }
 
     public void prOkConsultaRepresentacions(String titol, Date data) {
-
+        view.mostraRepresentacions(null);
     }
 
     public void prOkConsultaOcupacions(String nomLocal, String sessio, int nombEspectador) {
@@ -35,6 +41,10 @@ public class ComprarEntradaController {
 
     public void prOkPagament(String dni, int codiB, String numCompte) {
 
+    }
+
+    public void prCancel() {
+        System.exit(0);
     }
 
 }

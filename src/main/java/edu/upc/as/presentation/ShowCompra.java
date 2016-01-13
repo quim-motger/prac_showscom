@@ -19,11 +19,9 @@ public class ShowCompra extends JFrame{
     private JButton cancelButton;
     private JButton OKButton;
     private JLabel errorMessage;
-    private ComprarEntradaController c;
 
     public ShowCompra (ComprarEntradaController ctrl) {
         super("Comprar Entrada");
-        this.c = ctrl;
         setContentPane(rootPanel);
         pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -34,12 +32,12 @@ public class ShowCompra extends JFrame{
         });
         OKButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                c.prOkPagament("", 0, "");
+
             }
         });
         canviMonedaButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                c.prObtePreuMoneda("");
+
             }
         });
         setVisible(true);

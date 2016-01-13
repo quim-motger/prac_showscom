@@ -11,11 +11,9 @@ public class ShowNotificacio extends JFrame{
     private JPanel rootPanel;
     private JTextField messageNotif;
     private JButton OKButton;
-    private ComprarEntradaController c;
 
-    public ShowNotificacio (ComprarEntradaController ctrl) {
+    public ShowNotificacio () {
         super("Comprar Entrada");
-        this.c = ctrl;
         setContentPane(rootPanel);
         pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

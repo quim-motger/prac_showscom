@@ -14,11 +14,9 @@ public class ShowRepresentacions extends JFrame {
     private JLabel errorMessage;
     private JTable representacionsTable;
     private JTextField nEspectadorsField;
-    private ComprarEntradaController c;
 
-    public ShowRepresentacions(ComprarEntradaController ctrl) {
+    public ShowRepresentacions() {
         super("Comprar Entrada");
-        this.c = ctrl;
         setContentPane(rootPanel);
         pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -29,7 +27,6 @@ public class ShowRepresentacions extends JFrame {
         });
         OKButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                c.prOkConsultaOcupacions("", "", 0);
             }
         });
         setVisible(true);

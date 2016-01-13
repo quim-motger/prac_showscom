@@ -10,14 +10,15 @@ import java.util.List;
  */
 public class ComprarEntradaSistemaView implements ComprarEntradaView {
 
-    ComprarEntradaForm s;
+    ComprarEntradaForm c;
 
-    public void init(ComprarEntradaController c) {
-        s = new ComprarEntradaForm(c);
+    public void init() {
+        c = new ComprarEntradaForm();
     }
 
     public void mostraRepresentacions(List<InfoRepresentacio> repre) {
-
+        ShowRepresentacions cc = new ShowRepresentacions();
+        c.setRootPanel(cc.getRootPanel());
     }
 
     public void mostraOcupacions(List<InfoOcupacio> ocup) {
