@@ -1,30 +1,51 @@
 package edu.upc.as.domain.model;
 
+import javax.persistence.*;
+
 /**
  * Created by jmotger on 12/01/16.
  */
+@Entity
 public class Seient {
+    @EmbeddedId
+    private SeientPK id;
 
-    private final int fila;
-    private final int columna;
-    private final Local local;
+    @MapsId("localId")
+    @JoinColumn(name = "nomLocal", referencedColumnName = "nom", nullable = false)
+    @ManyToOne
+    private Local local;
 
-    public Seient(int fila, int columna, Local local) {
-        this.fila = fila;
-        this.columna = columna;
+    public Seient() {
+        id = new SeientPK();
+    }
+
+    public Seient(Integer fila, Integer columna, Local local) {
+        id = new SeientPK(fila, columna);
         this.local = local;
     }
 
-    public int getFila() {
-        return fila;
+    public Integer getFila() {
+        return id.getFila();
     }
 
-    public int getColumna() {
-        return columna;
+    public void setFila(Integer fila) {
+        id.setFila(fila);
+    }
+
+    public Integer getColumna() {
+        return id.getColumna();
+    }
+
+    public void setColumna(Integer columna) {
+        id.setColumna(columna);
     }
 
     public Local getLocal() {
         return local;
+    }
+
+    public void setLocal(Local local) {
+        this.local = local;
     }
 
 }

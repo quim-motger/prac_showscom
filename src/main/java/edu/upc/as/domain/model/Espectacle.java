@@ -2,6 +2,7 @@ package edu.upc.as.domain.model;
 
 import edu.upc.as.domain.utils.InfoRepresentacio;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,9 +10,12 @@ import java.util.List;
 /**
  * Created by jmotger on 12/01/16.
  */
+@Entity(name = Espectacle.TABLE)
+@Table(name = Espectacle.TABLE)
 public class Espectacle {
+    final static String TABLE = "espectacle";
 
-    private final String titol;
+    private String titol;
     private int participants;
     private List<Representacio> representacions;
 
@@ -21,6 +25,11 @@ public class Espectacle {
         representacions = new LinkedList<Representacio>();
     }
 
+    public Espectacle() {
+    }
+
+    @Basic
+    @Column(name = "participants")
     public int getParticipants() {
         return participants;
     }
@@ -29,8 +38,24 @@ public class Espectacle {
         this.participants = participants;
     }
 
+    @Id
+    @Column(name = "titol")
     public String getTitol() {
         return titol;
+    }
+
+    public void setTitol(String titol) {
+        this.titol = titol;
+    }
+
+    @OneToMany
+    @JoinColumn(name = "titol", referencedColumnName = "titol")
+    public List<Representacio> getRepresentacions() {
+        return representacions;
+    }
+
+    public void setRepresentacions(List<Representacio> representacions) {
+        this.representacions = representacions;
     }
 
     public List<InfoRepresentacio> getRepresentacions(Date data) {
@@ -44,4 +69,19 @@ public class Espectacle {
         return reps;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Espectacle that = (Espectacle) o;
+
+        return getTitol().equals(that.getTitol());
+
+    }
+
+    @Override
+    public int hashCode() {
+        return getTitol().hashCode();
+    }
 }
