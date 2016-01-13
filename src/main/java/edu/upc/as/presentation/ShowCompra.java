@@ -5,18 +5,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by jmotger on 13/01/16.
+ * Created by cpuig on 13/01/2016.
  */
-public class ShowRepresentacions extends JFrame {
+public class ShowCompra extends JFrame{
     private JPanel rootPanel;
+    private JList monedesList;
+    private JTextField totalPreuField;
+    private JTextField canviPreuField;
+    private JButton canviMonedaButton;
+    private JTextField dniField;
+    private JTextField codiBancField;
+    private JTextField nCompteField;
     private JButton cancelButton;
     private JButton OKButton;
     private JLabel errorMessage;
-    private JTable representacionsTable;
-    private JTextField nEspectadorsField;
     private ComprarEntradaController c;
 
-    public ShowRepresentacions(ComprarEntradaController ctrl) {
+    public ShowCompra (ComprarEntradaController ctrl) {
         super("Comprar Entrada");
         this.c = ctrl;
         setContentPane(rootPanel);
@@ -29,7 +34,12 @@ public class ShowRepresentacions extends JFrame {
         });
         OKButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                c.prOkConsultaOcupacions("", "", 0);
+                c.prOkPagament("", 0, "");
+            }
+        });
+        canviMonedaButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                c.prObtePreuMoneda("");
             }
         });
         setVisible(true);

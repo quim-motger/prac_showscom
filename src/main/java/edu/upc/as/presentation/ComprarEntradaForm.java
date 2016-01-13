@@ -10,11 +10,12 @@ import java.awt.event.ActionListener;
 public class ComprarEntradaForm extends JFrame {
 
 
-    private JList list1;
+    private JList espectaclesList;
     private JButton okButton;
     private JButton cancelButton;
     private JPanel rootPanel;
     private JLabel errorMessage;
+    private JTextField dataField;
     private ComprarEntradaController c;
 
     public ComprarEntradaForm(ComprarEntradaController ctrl) {

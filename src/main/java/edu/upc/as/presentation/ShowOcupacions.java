@@ -5,18 +5,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by jmotger on 13/01/16.
+ * Created by cpuig on 13/01/2016.
  */
-public class ShowRepresentacions extends JFrame {
+public class ShowOcupacions extends JFrame {
     private JPanel rootPanel;
     private JButton cancelButton;
+    private JTable table1;
     private JButton OKButton;
     private JLabel errorMessage;
-    private JTable representacionsTable;
-    private JTextField nEspectadorsField;
     private ComprarEntradaController c;
 
-    public ShowRepresentacions(ComprarEntradaController ctrl) {
+    public ShowOcupacions(ComprarEntradaController ctrl) {
         super("Comprar Entrada");
         this.c = ctrl;
         setContentPane(rootPanel);
@@ -29,7 +28,7 @@ public class ShowRepresentacions extends JFrame {
         });
         OKButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                c.prOkConsultaOcupacions("", "", 0);
+                c.prOkSeleccionaSeients(null);
             }
         });
         setVisible(true);
@@ -38,5 +37,4 @@ public class ShowRepresentacions extends JFrame {
     public JPanel getRootPanel() {
         return rootPanel;
     }
-
 }

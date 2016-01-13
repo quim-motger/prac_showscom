@@ -17,7 +17,7 @@ public class ServiceLocator {
 
     public Object find(String path) throws ServeiNoTrobat {
         if (path.equals("CurrencyConvertor")) {
-            return new SvCurrencyConvertor();
+           return new SvCurrencyConvertor();
         }
         else if (path.equals("BankService")) {
             return new SvBankService();
