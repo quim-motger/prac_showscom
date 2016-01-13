@@ -14,22 +14,24 @@ public class ShowRepresentacions extends JFrame {
     private JLabel errorMessage;
     private JTable representacionsTable;
     private JTextField nEspectadorsField;
+    private ComprarEntradaController ctrl;
 
-    public ShowRepresentacions() {
+    public ShowRepresentacions(ComprarEntradaController c) {
         super("Comprar Entrada");
+        this.ctrl = c;
         setContentPane(rootPanel);
         pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         cancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                ctrl.prCancel();
             }
         });
         OKButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                ctrl.prOkConsultaOcupacions("","",0);
             }
         });
-        setVisible(true);
     }
 
     public JPanel getRootPanel() {

@@ -16,20 +16,22 @@ public class ComprarEntradaForm extends JFrame {
     private JPanel rootPanel;
     private JLabel errorMessage;
     private JTextField dataField;
+    private ComprarEntradaController ctrl;
 
-    public ComprarEntradaForm() {
+    public ComprarEntradaForm(ComprarEntradaController c) {
         super("Comprar Entrada");
+        this.ctrl = c;
         setContentPane(rootPanel);
         pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         cancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //TODO HOW TO SOLVE THIS?
+                ctrl.prCancel();
             }
         });
         okButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //TODO HOW TO SOLVE THIS?
+                ctrl.prOkConsultaRepresentacions("", null);
             }
         });
         setVisible(true);

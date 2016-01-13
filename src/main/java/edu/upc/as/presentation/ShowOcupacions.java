@@ -31,7 +31,6 @@ public class ShowOcupacions extends JFrame {
                 c.prOkSeleccionaSeients(null);
             }
         });
-        setVisible(true);
     }
 
     public JPanel getRootPanel() {

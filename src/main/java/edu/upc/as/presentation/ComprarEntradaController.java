@@ -20,7 +20,7 @@ public class ComprarEntradaController {
 
     public ComprarEntradaController() {
         view = ViewFactory.getInstance().getComprarEntradaView();
-        view.init();
+        view.init(this);
     }
 
     public void prOkConsultaRepresentacions(String titol, Date data) {
@@ -28,7 +28,7 @@ public class ComprarEntradaController {
     }
 
     public void prOkConsultaOcupacions(String nomLocal, String sessio, int nombEspectador) {
-
+        view.mostraOcupacions(null);
     }
 
     public void prOkSeleccionaSeients(List<InfoOcupacio> seients) {
