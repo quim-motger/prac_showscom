@@ -51,7 +51,7 @@ public class CtrlComprarEntrada {
         return FactoriaCasosUs
                 .getInstance()
                 .getCtrlConsultarOcupacio()
-                .consultaOcupacio(nomLocal, sessio, nombEspectadors);
+                .consultaOcupacio(nomLocal, sessio.name(), nombEspectadors);
     }
 
     public InfoSeleccioSeients seleccionarSeients(List<InfoOcupacio> seients) {
