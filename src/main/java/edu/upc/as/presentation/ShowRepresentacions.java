@@ -34,15 +34,15 @@ public class ShowRepresentacions extends JFrame {
         DefaultTableModel tableModel = new DefaultTableModel();
         tableModel.setColumnIdentifiers(headers.toArray());
         representacions.setModel(tableModel);
-
+        representacions.getColumnModel().getColumn(0).setMinWidth(180);
         SpinnerNumberModel spinnerNumberModel = new SpinnerNumberModel();
         spinnerNumberModel.setValue(1);
         nEspectadors.setModel(spinnerNumberModel);
 
         for (InfoRepresentacio r : repre) {
             String s;
-            if (r.estrena) s = "Estrena";
-            else s = "No estrena";
+            if (r.estrena) s = "Sí";
+            else s = "No";
             tableModel.addRow(Arrays.asList(r.nomLocal, r.sessio, r.nombreSeientsLliures, s, r.preu).toArray());
         }
 

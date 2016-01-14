@@ -3,10 +3,12 @@ package edu.upc.as.presentation;
 import edu.upc.as.domain.utils.InfoOcupacio;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -17,21 +19,28 @@ public class ShowOcupacions extends JFrame {
     private JButton cancelButton;
     private JButton OKButton;
     private JLabel errorMessage;
-    private JList ocupacioList;
+    private JTable ocupacions;
     private ComprarEntradaController c;
+    private final List<InfoOcupacio> ocupacios;
 
     public ShowOcupacions(ComprarEntradaController ctrl, List<InfoOcupacio> ocup) {
         this.c = ctrl;
+        this.ocupacios = ocup;
         setContentPane(rootPanel);
         pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        DefaultListModel resultList = new DefaultListModel();
-        ocupacioList.setModel(resultList);
+        List<String> headers = Arrays.asList("Fila", "Columna");
+
+        final DefaultTableModel tableModel = new DefaultTableModel();
+        tableModel.setColumnIdentifiers(headers.toArray());
+        ocupacions.setModel(tableModel);
 
         setMinimumSize(new Dimension(600,300));
 
-        for (InfoOcupacio infoOcupacio : ocup) resultList.addElement(infoOcupacio.fila + " - " + infoOcupacio.columna);
+        for (InfoOcupacio io : ocup) {
+            tableModel.addRow(Arrays.asList(io.fila, io.columna).toArray());
+        }
 
         cancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -40,14 +49,13 @@ public class ShowOcupacions extends JFrame {
         });
         OKButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                List<String> l =  ocupacioList.getSelectedValuesList();
+                int selectedRows[] = ocupacions.getSelectedRows();
                 List<InfoOcupacio> ocup = new ArrayList<InfoOcupacio>();
-                for (String s : l) {
-                    String info[] = s.split(" - ");
-                    InfoOcupacio i = new InfoOcupacio();
-                    i.fila = Integer.parseInt(info[0]);
-                    i.columna = Integer.parseInt(info[1]);
-                    ocup.add(i);
+                for (int i  : selectedRows) {
+                    InfoOcupacio inf = new InfoOcupacio();
+                    inf.fila = ocupacios.get(i).fila;
+                    inf.columna = ocupacios.get(i).columna;
+                    ocup.add(inf);
                 }
                 c.prOkSeleccionaSeients(ocup);
             }
