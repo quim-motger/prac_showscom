@@ -7,12 +7,12 @@
 
   <!-- Connection settings -->
   <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-  <property name="hibernate.connection.url">jdbc:postgresql://horton.elephantsql.com:5432/mtjylorp</property>
-  <property name="hibernate.connection.username">mtjylorp</property>
-  <property name="hibernate.connection.password">sa_FhICz5dFWITlsipNIxsQnrQKF81Vw</property>
- <!--<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/showscom</property>-->
-  <!--<property name="hibernate.connection.username">postgres</property>-->
-  <!--<property name="hibernate.connection.password">encarnaManlleu</property>-->
+  <!--<property name="hibernate.connection.url">jdbc:postgresql://horton.elephantsql.com:5432/mtjylorp</property>-->
+  <!--<property name="hibernate.connection.username">mtjylorp</property>-->
+  <!--<property name="hibernate.connection.password">sa_FhICz5dFWITlsipNIxsQnrQKF81Vw</property>-->
+ <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/showscom</property>
+  <property name="hibernate.connection.username">postgres</property>
+  <property name="hibernate.connection.password">encarnaManlleu</property>
 
   <!-- SQL dialect -->
   <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
