@@ -115,14 +115,12 @@ public class Representacio {
         return seientsEnRepresentacio;
     }
 
-    public void setSeientsEnRepresentacio(Set<SeientEnRepresentacio> seientsEnRepresentacio) {
-        this.seientsEnRepresentacio = seientsEnRepresentacio;
+    public void setSeientsEnRepresentacio(List<SeientEnRepresentacio> seientsEnRepresentacio) {
+        this.seientsEnRepresentacio = new HashSet<SeientEnRepresentacio>(seientsEnRepresentacio);
     }
 
     public void setSeientsEnRepresentacio(Set<SeientEnRepresentacio> seientsEnRepresentacio) {
         this.seientsEnRepresentacio = seientsEnRepresentacio;
-    }    public void setSeientsEnRepresentacio(List<SeientEnRepresentacio> seientsEnRepresentacio) {
-        this.seientsEnRepresentacio = new HashSet<SeientEnRepresentacio>(seientsEnRepresentacio);
     }
 
     public RepresentacioPK getId() {

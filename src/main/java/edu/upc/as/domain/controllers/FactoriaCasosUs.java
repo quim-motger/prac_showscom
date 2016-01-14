@@ -5,24 +5,30 @@ package edu.upc.as.domain.controllers;
  */
 public class FactoriaCasosUs {
     private static FactoriaCasosUs ourInstance = new FactoriaCasosUs();
+    private CtrlComprarEntrada ctrlComprarEntrada;
+    private CtrlConsultarOcupacio ctrlConsultarOcupacio;
+    private CtrlConsultarRepresentacions ctrlConsultarRepresentacions;
+
+    private FactoriaCasosUs() {
+    }
 
     public static FactoriaCasosUs getInstance() {
         return ourInstance;
     }
 
-    private FactoriaCasosUs() {
-    }
-
     public CtrlComprarEntrada getCtrlComprarEntrada() {
-        return new CtrlComprarEntrada();
+        if(ctrlComprarEntrada==null) ctrlComprarEntrada = new CtrlComprarEntrada();
+        return ctrlComprarEntrada;
     }
 
     public CtrlConsultarOcupacio getCtrlConsultarOcupacio() {
-        return new CtrlConsultarOcupacio();
+        if(ctrlConsultarOcupacio==null) ctrlConsultarOcupacio = new CtrlConsultarOcupacio();
+        return ctrlConsultarOcupacio;
     }
 
     public CtrlConsultarRepresentacions getCtrlConsultarRepresentacions() {
-        return new CtrlConsultarRepresentacions();
+        if(ctrlConsultarRepresentacions==null) ctrlConsultarRepresentacions = new CtrlConsultarRepresentacions();
+        return ctrlConsultarRepresentacions;
     }
 
 }
