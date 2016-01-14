@@ -24,7 +24,7 @@ public class ComprarEntradaSistemaView implements ComprarEntradaView {
     }
 
     public void mostraOcupacions(List<InfoOcupacio> ocup) {
-
+        ShowOcupacions cc = new ShowOcupacions(ctrl, ocup);
     }
 
     public void mostraPreu(float preu, List<String> canvis) {

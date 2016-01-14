@@ -30,7 +30,7 @@ public class ShowRepresentacions extends FormView {
         representacionsList.setModel(resultList);
 
         SpinnerNumberModel spinnerNumberModel = new SpinnerNumberModel();
-        spinnerNumberModel.setMinimum(1);
+        spinnerNumberModel.setValue(1);
         nEspectadors.setModel(spinnerNumberModel);
 
         for (InfoRepresentacio r : repre) {
@@ -50,7 +50,8 @@ public class ShowRepresentacions extends FormView {
             public void actionPerformed(ActionEvent e) {
                 String s = (String) representacionsList.getSelectedValue();
                 String info[] = s.split(" - ");
-                ctrl.prOkConsultaOcupacions(info[0],info[1], (Integer) nEspectadors.getValue());
+                int n = (Integer) nEspectadors.getValue();
+                ctrl.prOkConsultaOcupacions(info[0],info[1], n);
             }
         });
     }
