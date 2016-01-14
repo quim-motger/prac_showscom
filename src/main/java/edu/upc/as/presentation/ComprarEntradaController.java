@@ -25,7 +25,14 @@ public class ComprarEntradaController {
     }
 
     public void prOkConsultaRepresentacions(String titol, Date data) /*throws ParseException*/ {
-        view.mostraRepresentacions(null);
+        if (titol == null || titol.equals("") || data == null || data.equals("")) {
+            view.mostraMissatge("Informació no seleccionada");
+        }
+        else if (FactoriaCasosUs.getInstance().getCtrlConsultarRepresentacions().consultaRepresentacions(titol, data).size() == 0) {
+            view.mostraMissatge("Espectacle seleccionat no té representacions");
+        } else {
+            view.mostraRepresentacions(null);
+        }
     }
 
     public void prOkConsultaOcupacions(String nomLocal, String sessio, int nombEspectador) {

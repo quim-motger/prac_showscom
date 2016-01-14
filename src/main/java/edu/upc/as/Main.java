@@ -46,7 +46,7 @@ public class Main {
         Sessio tarda = new Sessio(TipusSessio.tarda);
         Sessio nit = new Sessio(TipusSessio.nit);
 
-        Representacio r1 = new Estrena(d, 25.9f, 5, l1, 5.0f, tarda);
+       /* Representacio r1 = new Estrena(d, 25.9f, 5, l1, 5.0f, tarda);
         Representacio r2 = new Representacio(d, 35.9f, 5, l1, nit);
         Representacio r3 = new Estrena(d, 19.9f, 5, l2, 8.0f, mati);
         Representacio r4 = new Representacio(d, 24.9f, 5, l2, tarda);
@@ -81,7 +81,7 @@ public class Main {
         r2.setSeientsEnRepresentacio(lsr1);
         r3.setSeientsEnRepresentacio(lsr2);
         r4.setSeientsEnRepresentacio(lsr2);
-        r5.setSeientsEnRepresentacio(lsr2);
+        r5.setSeientsEnRepresentacio(lsr2);*/
 
     }
 

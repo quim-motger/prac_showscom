@@ -1,10 +1,14 @@
 package edu.upc.as.presentation;
 
+import edu.upc.as.domain.controllers.FactoriaCasosUs;
+import edu.upc.as.domain.model.Espectacle;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 
 /**
@@ -29,6 +33,13 @@ public class ComprarEntradaForm extends JFrame {
         pack();
         data = new SimpleDateFormat("MM/dd/yyyy");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        DefaultListModel resultList = new DefaultListModel();
+        espectaclesList.setModel(resultList);
+
+        List<String> l = FactoriaCasosUs.getInstance().getCtrlComprarEntrada().obteEspectacles();
+        for (String s : l) resultList.addElement(s);
+
         cancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ctrl.prCancel();
@@ -36,8 +47,8 @@ public class ComprarEntradaForm extends JFrame {
         });
         okButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ctrl.prOkConsultaRepresentacions(
-                        (String)espectaclesList.getSelectedValue(),
+                    ctrl.prOkConsultaRepresentacions(
+                            (String) espectaclesList.getSelectedValue(),
                         /*data.parse(dataField.getText())*/ null);
             }
         });
@@ -47,6 +58,10 @@ public class ComprarEntradaForm extends JFrame {
     public void setRootPanel(JPanel rootPanel) {
         this.rootPanel = rootPanel;
         setContentPane(rootPanel);
+    }
+
+    public void setErrorMessage(String message) {
+        errorMessage.setText(message);
     }
 
 }

@@ -35,7 +35,7 @@ public class ComprarEntradaSistemaView implements ComprarEntradaView {
     }
 
     public void mostraMissatge(String missatge) {
-
+        c.setErrorMessage(missatge);
     }
 
     public void mostraMissatgeFi() {
