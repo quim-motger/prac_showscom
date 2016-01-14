@@ -5,7 +5,9 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by jmotger on 12/01/16.
@@ -21,7 +23,7 @@ public class Entrada {
     private Date data;
     private float preu;
     private Representacio representacio;
-    private List<SeientEnRepresentacio> seientsEnRepresentacio;
+    private Set<SeientEnRepresentacio> seientsEnRepresentacio;
 
     public Entrada(String dniClient, int nombEspectadors, Date data, float preu) {
         this.dniClient = dniClient;
@@ -107,11 +109,15 @@ public class Entrada {
     }
 
     @OneToMany(mappedBy = "entrada", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-    public List<SeientEnRepresentacio> getSeientsEnRepresentacio() {
+    public Set<SeientEnRepresentacio> getSeientsEnRepresentacio() {
         return seientsEnRepresentacio;
     }
 
     public void setSeientsEnRepresentacio(List<SeientEnRepresentacio> seientsEnRepresentacio) {
+        this.seientsEnRepresentacio = new HashSet<SeientEnRepresentacio>(seientsEnRepresentacio);
+    }
+
+    public void setSeientsEnRepresentacio(Set<SeientEnRepresentacio> seientsEnRepresentacio) {
         this.seientsEnRepresentacio = seientsEnRepresentacio;
     }
 

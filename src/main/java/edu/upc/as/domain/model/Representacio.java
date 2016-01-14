@@ -6,10 +6,7 @@ import edu.upc.as.exception.SeientsNoDisponibles;
 import edu.upc.as.hibernate.UtilHibernate;
 
 import javax.persistence.*;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by jmotger on 12/01/16.
@@ -45,7 +42,7 @@ public class Representacio {
 
     @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumns({@JoinColumn(name = "sessio", referencedColumnName = "sessio"), @JoinColumn(name = "nomlocal", referencedColumnName = "nomlocal")})
-    private List<SeientEnRepresentacio> seientsEnRepresentacio;
+    private Set<SeientEnRepresentacio> seientsEnRepresentacio;
 
     @EmbeddedId
     private RepresentacioPK id;
@@ -57,7 +54,7 @@ public class Representacio {
         this.nombreSeientsLliures = nombreSeientsLliures;
         this.local = local;
         this.sessio = sessio;
-        seientsEnRepresentacio = new LinkedList<SeientEnRepresentacio>();
+        seientsEnRepresentacio = new HashSet<SeientEnRepresentacio>();
         UtilHibernate.save(this);
     }
 
@@ -68,7 +65,7 @@ public class Representacio {
         this.nombreSeientsLliures = nombreSeientsLliures;
         this.local = local;
         this.sessio = sessio;
-        seientsEnRepresentacio = new LinkedList<SeientEnRepresentacio>();
+        seientsEnRepresentacio = new HashSet<SeientEnRepresentacio>();
         if(save)UtilHibernate.save(this);
     }
 
@@ -114,12 +111,18 @@ public class Representacio {
         this.sessio = sessio;
     }
 
-    public List<SeientEnRepresentacio> getSeientsEnRepresentacio() {
+    public Set<SeientEnRepresentacio> getSeientsEnRepresentacio() {
         return seientsEnRepresentacio;
     }
 
-    public void setSeientsEnRepresentacio(List<SeientEnRepresentacio> seientsEnRepresentacio) {
+    public void setSeientsEnRepresentacio(Set<SeientEnRepresentacio> seientsEnRepresentacio) {
         this.seientsEnRepresentacio = seientsEnRepresentacio;
+    }
+
+    public void setSeientsEnRepresentacio(Set<SeientEnRepresentacio> seientsEnRepresentacio) {
+        this.seientsEnRepresentacio = seientsEnRepresentacio;
+    }    public void setSeientsEnRepresentacio(List<SeientEnRepresentacio> seientsEnRepresentacio) {
+        this.seientsEnRepresentacio = new HashSet<SeientEnRepresentacio>(seientsEnRepresentacio);
     }
 
     public RepresentacioPK getId() {
