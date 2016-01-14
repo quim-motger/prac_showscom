@@ -9,7 +9,7 @@ import javax.persistence.*;
  * Created by jmotger on 12/01/16.
  */
 @Entity(name = SeientEnRepresentacio.TABLE)
-@Table(name = SeientEnRepresentacio.TABLE, schema = "public", catalog = "showscom")
+@Table(name = SeientEnRepresentacio.TABLE)
 public class SeientEnRepresentacio {
     final static String TABLE = "seient_en_representacio";
     @EmbeddedId
@@ -23,8 +23,8 @@ public class SeientEnRepresentacio {
     @JoinColumn(name = "identificadorentrada", referencedColumnName = "identificador")
     private Entrada entrada;
 
-    public SeientEnRepresentacio(Seient seient, Entrada entrada) {
-        id = new SeientEnRepresentacioPK(seient,entrada.getRepresentacio());
+    public SeientEnRepresentacio(Seient seient, Representacio representacio, Entrada entrada) {
+        id = new SeientEnRepresentacioPK(seient,representacio);
         this.entrada = entrada;
         estat = Estat.lliure;
         UtilHibernate.save(this);

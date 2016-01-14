@@ -1,25 +1,22 @@
 package edu.upc.as;
 
 import edu.upc.as.domain.model.*;
-import edu.upc.as.presentation.ComprarEntradaController;
+import org.junit.Test;
 
 import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Created by jmotger on 12/01/16.
+ * InstanciacioTest in edu.upc.as
+ *
+ * @author casassg
+ * @version 1.0
+ *          Creation Date: 14/01/16
  */
-public class Main {
+public class InstanciacioTest {
 
-    public static void main(String[] args) {
-        init();
-        ComprarEntradaController c = new ComprarEntradaController();
-        //c.init();
-        //ComprarEntradaForm form = new ComprarEntradaForm(c);
-    }
-
-    public static void init() {
-
+    @Test
+    public void test() {
         Espectacle e1 = new Espectacle("Les Miserables", 38);
         Espectacle e2 = new Espectacle("La Traviatta", 20);
 
@@ -61,5 +58,4 @@ public class Main {
         SeientEnRepresentacio sr10 = new SeientEnRepresentacio(s10,r3, null);
 
     }
-
 }

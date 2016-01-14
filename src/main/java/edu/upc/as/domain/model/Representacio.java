@@ -60,6 +60,17 @@ public class Representacio {
         UtilHibernate.save(this);
     }
 
+    public Representacio(Date data, float preu, int nombreSeientsLliures, Local local, Sessio sessio,boolean save) {
+        id = new RepresentacioPK();
+        this.data = data;
+        this.preu = preu;
+        this.nombreSeientsLliures = nombreSeientsLliures;
+        this.local = local;
+        this.sessio = sessio;
+        seientsEnRepresentacio = new LinkedList<SeientEnRepresentacio>();
+        if(save)UtilHibernate.save(this);
+    }
+
     public Representacio() {
         id = new RepresentacioPK();
     }

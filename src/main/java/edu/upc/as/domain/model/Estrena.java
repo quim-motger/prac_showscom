@@ -16,7 +16,7 @@ public class Estrena extends Representacio {
     private float recarrec;
 
     public Estrena(Date data, float preu, int nombreSeientsLliures, Local local, float recarrec, Sessio sessio) {
-        super(data, preu, nombreSeientsLliures, local, sessio);
+        super(data, preu, nombreSeientsLliures, local, sessio,false);
         this.recarrec = recarrec;
         UtilHibernate.save(this);
     }

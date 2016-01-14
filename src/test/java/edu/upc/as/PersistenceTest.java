@@ -52,7 +52,7 @@ public class PersistenceTest {
 
         Seient s1 = new Seient(1,2,l1);
 
-        SeientEnRepresentacio sr = new SeientEnRepresentacio(s1,entrada);
+        SeientEnRepresentacio sr =    new SeientEnRepresentacio(s1,r,entrada);
 
         assertEquals(2,r.getNombreSeientsLliures());
         entrada.setRepresentacioISeients(r, Collections.singletonList(sr));
