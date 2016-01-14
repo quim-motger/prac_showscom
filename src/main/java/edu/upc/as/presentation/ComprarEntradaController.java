@@ -1,8 +1,11 @@
 package edu.upc.as.presentation;
 
 import edu.upc.as.domain.controllers.FactoriaCasosUs;
+import edu.upc.as.domain.model.TipusSessio;
 import edu.upc.as.domain.utils.InfoOcupacio;
 import edu.upc.as.domain.utils.InfoRepresentacio;
+import edu.upc.as.domain.utils.InfoSeleccioSeients;
+import edu.upc.as.exception.NoHiHaRepresentacions;
 import edu.upc.as.exception.SeientsNoDisponibles;
 import edu.upc.as.exception.NoExisteixDB;
 
@@ -30,9 +33,9 @@ public class ComprarEntradaController {
         else {
             List<InfoRepresentacio> infoRepresentacios = null;
             try {
-                infoRepresentacios = FactoriaCasosUs.getInstance().getCtrlConsultarRepresentacions().consultaRepresentacions(titol, data);
+                infoRepresentacios = FactoriaCasosUs.getInstance().getCtrlComprarEntrada().obteRepresentacions(titol, data);
                 view.mostraRepresentacions(infoRepresentacios);
-            } catch (NoExisteixDB noExisteixDB) {
+            } catch (NoHiHaRepresentacions noHiHaRepresentacions) {
                 view.mostraMissatge("Espectacle seleccionat no té representacions");
                 return;
             }
@@ -44,7 +47,8 @@ public class ComprarEntradaController {
             view.mostraMissatge("El nombre d'espectadors ha de ser major que 0");
         } else {
             try {
-                List<InfoOcupacio> ocupacions = FactoriaCasosUs.getInstance().getCtrlConsultarOcupacio().consultaOcupacio(nomLocal, sessio, nombEspectador);
+                nEspec = nombEspectador;
+                List<InfoOcupacio> ocupacions = FactoriaCasosUs.getInstance().getCtrlComprarEntrada().obteOcupacio(nomLocal, TipusSessio.valueOf(sessio), nombEspectador);
                 view.mostraOcupacions(ocupacions);
             } catch (SeientsNoDisponibles e) {
                 view.mostraMissatge("El nombre d'espectadors supera els seients lliures");
@@ -53,7 +57,13 @@ public class ComprarEntradaController {
     }
 
     public void prOkSeleccionaSeients(List<InfoOcupacio> seients) {
-        view.mostraPreu(0, null);
+        if (seients.size() != nEspec) {
+            view.mostraMissatge("El nombre de seients seleccionats no coincideix amb el nombre d'espectadors");
+        }
+        else {
+            InfoSeleccioSeients i = FactoriaCasosUs.getInstance().getCtrlComprarEntrada().seleccionarSeients(seients);
+            view.mostraPreu(i.preu, i.canvis);
+        }
     }
 
     public void prObtePreuMoneda(String moneda) {

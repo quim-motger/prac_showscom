@@ -10,6 +10,6 @@ import java.util.List;
 public class InfoSeleccioSeients {
 
     public float preu;
-    public List<Moneda> canvis;
+    public List<String> canvis;
 
 }

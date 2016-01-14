@@ -64,8 +64,10 @@ public class InstanciacioTest {
         lr2.add(r4);
         lr2.add(r5);
 
-        e1.setRepresentacions(Collections.singletonList(r1));
+        e1.setRepresentacions(lr1);
+        e2.setRepresentacions(lr2);
         UtilHibernate.update(e1);
+        UtilHibernate.update(e2);
 
         SeientEnRepresentacio sr1 = new SeientEnRepresentacio(s1, r1,null);
         SeientEnRepresentacio sr2 = new SeientEnRepresentacio(s2, r2, null);
@@ -78,8 +80,16 @@ public class InstanciacioTest {
         SeientEnRepresentacio sr9 = new SeientEnRepresentacio(s9, r3, null);
         SeientEnRepresentacio sr10 = new SeientEnRepresentacio(s10,r3, null);
 
-        r1.setSeientsEnRepresentacio(Arrays.asList(sr1, sr3, sr4, sr5));
+        r1.setSeientsEnRepresentacio(Arrays.asList(sr1,sr2, sr3, sr4, sr5));
+        r2.setSeientsEnRepresentacio(Arrays.asList(sr1,sr2, sr3, sr4, sr5));
+        r3.setSeientsEnRepresentacio(Arrays.asList(sr6,sr7,sr8,sr9,sr10));
+        r4.setSeientsEnRepresentacio(Arrays.asList(sr6,sr7,sr8,sr9,sr10));
+        r5.setSeientsEnRepresentacio(Arrays.asList(sr6,sr7,sr8,sr9,sr10));
         UtilHibernate.update(r1);
+        UtilHibernate.update(r2);
+        UtilHibernate.update(r3);
+        UtilHibernate.update(r4);
+        UtilHibernate.update(r5);
 //        r2.setSeientsEnRepresentacio(Arrays.asList(sr2, sr6, sr7));
 //        UtilHibernate.update(r2);
 //        r3.setSeientsEnRepresentacio(Arrays.asList(sr8, sr9, sr10));

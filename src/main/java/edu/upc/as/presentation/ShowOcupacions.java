@@ -5,6 +5,7 @@ import edu.upc.as.domain.utils.InfoOcupacio;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,7 +37,21 @@ public class ShowOcupacions extends JFrame {
         });
         OKButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                c.prOkSeleccionaSeients(null);
+                List<String> l =  ocupacioList.getSelectedValuesList();
+                List<InfoOcupacio> ocup = new ArrayList<InfoOcupacio>();
+                if (l == null) {
+                    errorMessage.setText("Falta informació");
+                }
+                else {
+                    for (String s : l) {
+                        String info[] = s.split(" - ");
+                        InfoOcupacio i = new InfoOcupacio();
+                        i.fila = Integer.parseInt(info[0]);
+                        i.columna = Integer.parseInt(info[1]);
+                        ocup.add(i);
+                    }
+                    c.prOkSeleccionaSeients(ocup);
+                }
             }
         });
         setVisible(true);

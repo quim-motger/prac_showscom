@@ -12,6 +12,7 @@ import edu.upc.as.exception.NoHiHaRepresentacions;
 import edu.upc.as.exception.PagamentNoAutoritzat;
 import edu.upc.as.exception.SeientsNoDisponibles;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -73,7 +74,10 @@ public class CtrlComprarEntrada {
         }
         InfoSeleccioSeients info = new InfoSeleccioSeients();
         info.preu = preu;
-        info.canvis = Shows.getInstance().getCanvis();
+        info.canvis = new ArrayList<String>();
+        for (Moneda m : Shows.getInstance().getCanvis()) {
+            info.canvis.add(String.valueOf(m));
+        }
         return info;
     }
 
