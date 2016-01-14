@@ -7,7 +7,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 
@@ -26,12 +28,13 @@ public class ComprarEntradaForm extends JFrame {
     private ComprarEntradaController ctrl;
     private DateFormat data;
 
-    public ComprarEntradaForm(ComprarEntradaController c) {
+    public ComprarEntradaForm(ComprarEntradaController c)  {
         super("Comprar Entrada");
         this.ctrl = c;
         setContentPane(rootPanel);
         pack();
         data = new SimpleDateFormat("MM/dd/yyyy");
+        dataField.setText("MM/DD/yyyy");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         DefaultListModel resultList = new DefaultListModel();
@@ -47,9 +50,15 @@ public class ComprarEntradaForm extends JFrame {
         });
         okButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
+                try {
+                    Date d = data.parse(dataField.getText());
+                    System.out.println(d.toString());
                     ctrl.prOkConsultaRepresentacions(
-                            (String) espectaclesList.getSelectedValue(),
-                        /*data.parse(dataField.getText())*/ null);
+                            (String) espectaclesList.getSelectedValue(), data.parse(dataField.getText()));
+                } catch (ParseException e1) {
+                    errorMessage.setText("Format de data incorrecte (MM/dd/yyyy)");
+                }
             }
         });
         setVisible(true);
