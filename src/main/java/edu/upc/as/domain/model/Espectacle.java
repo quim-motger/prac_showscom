@@ -4,9 +4,7 @@ import edu.upc.as.domain.utils.InfoRepresentacio;
 import edu.upc.as.hibernate.UtilHibernate;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by jmotger on 12/01/16.
@@ -18,12 +16,12 @@ public class Espectacle {
 
     private String titol;
     private int participants;
-    private List<Representacio> representacions;
+    private Set<Representacio> representacions;
 
     public Espectacle(String titol, int participants) {
         this.titol = titol;
         this.participants = participants;
-        representacions = new LinkedList<Representacio>();
+        representacions = new HashSet<Representacio>();
         UtilHibernate.save(this);
     }
 
@@ -52,11 +50,15 @@ public class Espectacle {
 
     @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name = "titol", referencedColumnName = "titol")
-    public List<Representacio> getRepresentacions() {
+    public Set<Representacio> getRepresentacions() {
         return representacions;
     }
 
     public void setRepresentacions(List<Representacio> representacions) {
+        this.representacions = new HashSet<Representacio>(representacions);
+    }
+
+    public void setRepresentacions(Set<Representacio> representacions) {
         this.representacions = representacions;
     }
 

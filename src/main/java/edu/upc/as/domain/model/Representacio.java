@@ -160,9 +160,8 @@ public class Representacio {
                     getNombreSeientsLliures()
             );
         List<InfoOcupacio> seients = new LinkedList<InfoOcupacio>();
-        InfoOcupacio info;
         for (SeientEnRepresentacio sr : getSeientsEnRepresentacio()) {
-            info = new InfoOcupacio();
+            InfoOcupacio info = new InfoOcupacio();
             if(sr.getInfoLliure(info))
                 seients.add(info);
         }

@@ -78,5 +78,14 @@ public class InstanciacioTest {
         SeientEnRepresentacio sr9 = new SeientEnRepresentacio(s9, r3, null);
         SeientEnRepresentacio sr10 = new SeientEnRepresentacio(s10,r3, null);
 
+        r1.setSeientsEnRepresentacio(Arrays.asList(sr1, sr3, sr4, sr5));
+        UtilHibernate.update(r1);
+//        r2.setSeientsEnRepresentacio(Arrays.asList(sr2, sr6, sr7));
+//        UtilHibernate.update(r2);
+//        r3.setSeientsEnRepresentacio(Arrays.asList(sr8, sr9, sr10));
+//        UtilHibernate.update(r3);
+
+
+
     }
 }
