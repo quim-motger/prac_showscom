@@ -59,7 +59,7 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="620f9" class="com.toedter.calendar.JDateChooser" binding="dataField">
+      <component id="620f9" class="com.toedter.calendar.JDateChooser" binding="dataField" custom-create="true">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>

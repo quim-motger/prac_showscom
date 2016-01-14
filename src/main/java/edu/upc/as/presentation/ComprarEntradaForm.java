@@ -7,7 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -25,17 +24,16 @@ public class ComprarEntradaForm extends JFrame {
     private JLabel errorMessage;
     private JDateChooser dataField;
     private ComprarEntradaController ctrl;
-    private DateFormat data;
 
     @SuppressWarnings("unchecked")
     public ComprarEntradaForm(ComprarEntradaController c)  {
         super("Comprar Entrada");
-        dataField = new JDateChooser(new Date());
+
         this.ctrl = c;
         setContentPane(rootPanel);
         pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new Dimension(600,300));
+        setMinimumSize(new Dimension(600, 300));
 
         DefaultListModel resultList = new DefaultListModel();
         espectaclesList.setModel(resultList);
@@ -66,5 +64,7 @@ public class ComprarEntradaForm extends JFrame {
     }
 
 
-
+    private void createUIComponents() {
+        dataField = new JDateChooser(new Date());
+    }
 }
