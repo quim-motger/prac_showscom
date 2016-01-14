@@ -1,10 +1,14 @@
 package edu.upc.as;
 
+import edu.upc.as.domain.datainterface.DataFactory;
 import edu.upc.as.domain.model.*;
+import edu.upc.as.exception.NoExisteixDB;
 import org.junit.Test;
 
 import java.util.Collections;
 import java.util.Date;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by jmotger on 13/01/16.
@@ -43,16 +47,34 @@ public class PersistenceTest {
 
         Representacio r = new Representacio(new Date(),5,2,l1,tarda);
 
+        entrada.setRepresentacio(r);
+
 
         Seient s1 = new Seient(1,2,l1);
 
         SeientEnRepresentacio sr = new SeientEnRepresentacio(s1,entrada);
 
+        assertEquals(2,r.getNombreSeientsLliures());
         entrada.setRepresentacioISeients(r, Collections.singletonList(sr));
+        assertEquals(1,r.getNombreSeientsLliures());
 
         Entrada entrada2 =new Entrada("test2",6,new Date(),0);
         Entrada entrada3 =new Entrada("test3",6,new Date(),0);
 
+
+
     }
 
+
+    @Test
+    public void testGetEntrada() {
+        try {
+            Representacio entrada = DataFactory.getInstance().getCtrlRepresentacio().getRepresentacio("Teatre Jove Regina 2", TipusSessio.tarda);
+            assertEquals("Teatre Jove Regina 2",entrada.getLocal().getNom());
+            assertEquals(5,entrada.getPreu(),0.000001);
+            assertEquals(1,entrada.getNombreSeientsLliures());
+        } catch (NoExisteixDB noExisteixDB) {
+            noExisteixDB.printStackTrace();
+        }
+    }
 }
