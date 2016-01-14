@@ -15,4 +15,8 @@ public class FormView extends JFrame {
 
     }
 
+    public void setRootPanel(JPanel rootPanel) {
+
+    }
+
 }
