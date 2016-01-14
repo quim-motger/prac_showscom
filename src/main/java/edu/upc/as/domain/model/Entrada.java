@@ -106,7 +106,7 @@ public class Entrada {
         this.representacio = representacio;
     }
 
-    @OneToMany(mappedBy = "entrada")
+    @OneToMany(mappedBy = "entrada", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     public List<SeientEnRepresentacio> getSeientsEnRepresentacio() {
         return seientsEnRepresentacio;
     }

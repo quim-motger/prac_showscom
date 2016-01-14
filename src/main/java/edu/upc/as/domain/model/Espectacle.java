@@ -50,7 +50,7 @@ public class Espectacle {
         this.titol = titol;
     }
 
-    @OneToMany
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name = "titol", referencedColumnName = "titol")
     public List<Representacio> getRepresentacions() {
         return representacions;

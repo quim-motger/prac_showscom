@@ -6,6 +6,7 @@ import edu.upc.as.exception.SeientsNoDisponibles;
 import edu.upc.as.hibernate.UtilHibernate;
 
 import javax.persistence.*;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -42,7 +43,7 @@ public class Representacio {
     private Sessio sessio;
 
 
-    @OneToMany
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumns({@JoinColumn(name = "sessio", referencedColumnName = "sessio"), @JoinColumn(name = "nomlocal", referencedColumnName = "nomlocal")})
     private List<SeientEnRepresentacio> seientsEnRepresentacio;
 
@@ -75,10 +76,19 @@ public class Representacio {
         id = new RepresentacioPK();
     }
 
+    private static boolean sameDay(Date d1, Date d2){
+        Calendar cal1 = Calendar.getInstance();
+        Calendar cal2 = Calendar.getInstance();
+        cal1.setTime(d1);
+        cal2.setTime(d2);
+        return cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR) &&
+                cal1.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR)&&
+                cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR);
+    }
+
     public void setNomLocal(String nomLocal){
         id.setLocalId(nomLocal);
     }
-
 
     public Date getData() {
         return data;
@@ -95,7 +105,6 @@ public class Representacio {
     public void setPreu(float preu) {
         this.preu = preu;
     }
-
 
     public Sessio getSessio() {
         return sessio;
@@ -121,7 +130,6 @@ public class Representacio {
         this.id = id;
     }
 
-
     public int getNombreSeientsLliures() {
         return nombreSeientsLliures;
     }
@@ -129,7 +137,6 @@ public class Representacio {
     public void setNombreSeientsLliures(int nombreSeientsLliures) {
         this.nombreSeientsLliures = nombreSeientsLliures;
     }
-
 
     public Local getLocal() {
         return local;
@@ -176,7 +183,7 @@ public class Representacio {
     }
 
     public boolean isData(Date data, InfoRepresentacio info) {
-        if (data.equals(this.data))
+        if (sameDay(this.data,data))
             return false;
         info.nomLocal = getLocal().getNom();
         info.sessio = getSessio().getSessio();
