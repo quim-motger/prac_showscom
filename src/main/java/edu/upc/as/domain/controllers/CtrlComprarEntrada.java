@@ -7,10 +7,7 @@ import edu.upc.as.domain.model.*;
 import edu.upc.as.domain.utils.InfoOcupacio;
 import edu.upc.as.domain.utils.InfoRepresentacio;
 import edu.upc.as.domain.utils.InfoSeleccioSeients;
-import edu.upc.as.exception.NoExisteixDB;
-import edu.upc.as.exception.NoHiHaRepresentacions;
-import edu.upc.as.exception.PagamentNoAutoritzat;
-import edu.upc.as.exception.SeientsNoDisponibles;
+import edu.upc.as.exception.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -82,14 +79,14 @@ public class CtrlComprarEntrada {
     }
 
     public float obtePreuMoneda(Moneda moneda) throws Exception {
-        preu = AdapterFactory
+        float preu = AdapterFactory
                 .getInstance()
                 .getConvertor()
-                .conversionRate(Shows.getInstance().getDivisa().name(), moneda.name()) * preu;
+                .conversionRate(Shows.getInstance().getDivisa().name(), moneda.name()) * this.preu;
         return preu;
     }
 
-    public void pagament(String dni, int codiB, String numCompte) throws Exception {
+    public void pagament(String dni, int codiB, String numCompte) throws PagamentNoAutoritzat, ServeiNoDisponible, NoExisteixDB {
         Date avui = new Date();
         int cbs = Shows.getInstance().getCodiBanc();
         String ncs = Shows.getInstance().getNumCompte();

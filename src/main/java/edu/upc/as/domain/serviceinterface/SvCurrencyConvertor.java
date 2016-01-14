@@ -1,5 +1,6 @@
 package edu.upc.as.domain.serviceinterface;
 
+import edu.upc.as.exception.ServeiNoDisponible;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -15,7 +16,7 @@ import java.net.URL;
  */
 public class SvCurrencyConvertor {
 
-    public float conversionRate(String divisa, String moneda) throws Exception{
+    public float conversionRate(String divisa, String moneda) throws ServeiNoDisponible{
         try {
             InputStream input = new URL("http://api.fixer.io/latest?base=" + divisa + "&symbols=" + moneda).openStream();
             BufferedReader streamReader = new BufferedReader(new InputStreamReader(input, "UTF-8"));
@@ -36,7 +37,7 @@ public class SvCurrencyConvertor {
             return imp;
         }
         catch (Exception e) {
-            throw new Exception("Error accedint al servei");
+            throw new ServeiNoDisponible();
         }
     }
 

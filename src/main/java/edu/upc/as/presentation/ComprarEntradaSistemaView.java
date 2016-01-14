@@ -34,11 +34,13 @@ public class ComprarEntradaSistemaView implements ComprarEntradaView {
     }
 
     public void mostraPreu(float preu, List<String> canvis) {
-
+        ++i;
+        c.setVisible(false);
+        c = new ShowCompra(ctrl, preu, canvis);
     }
 
     public void mostraPreuMoneda(float preu, String moneda) {
-
+        ((ShowCompra) c).setCanvi(preu, moneda);
     }
 
     public void mostraMissatge(String missatge) {
@@ -49,11 +51,13 @@ public class ComprarEntradaSistemaView implements ComprarEntradaView {
     }
 
     public void mostraMissatgeFi() {
-
+        c.setVisible(false);
+        c = new EndView(this.ctrl);
     }
 
     public void mostraMissatgeFiError() {
-
+        c.setVisible(false);
+        c = new EndErrorView(this.ctrl);
     }
 
 }

@@ -32,7 +32,7 @@ public class ShowOcupacions extends JFrame {
 
         cancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                c.prCancel();
             }
         });
         OKButton.addActionListener(new ActionListener() {

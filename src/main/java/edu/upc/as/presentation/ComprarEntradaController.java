@@ -1,12 +1,12 @@
 package edu.upc.as.presentation;
 
 import edu.upc.as.domain.controllers.FactoriaCasosUs;
+import edu.upc.as.domain.model.Moneda;
 import edu.upc.as.domain.model.TipusSessio;
 import edu.upc.as.domain.utils.InfoOcupacio;
 import edu.upc.as.domain.utils.InfoRepresentacio;
 import edu.upc.as.domain.utils.InfoSeleccioSeients;
-import edu.upc.as.exception.NoHiHaRepresentacions;
-import edu.upc.as.exception.SeientsNoDisponibles;
+import edu.upc.as.exception.*;
 
 import java.util.Date;
 import java.util.List;
@@ -25,7 +25,7 @@ public class ComprarEntradaController {
         view.init(this);
     }
 
-    public void prOkConsultaRepresentacions(String titol, Date data)  {
+    public void prOkConsultaRepresentacions(String titol, Date data) /*throws ParseException*/ {
         if (titol == null || titol.equals("") || data == null || data.equals("")) {
             view.mostraMissatge("Informació no seleccionada");
         }
@@ -66,15 +66,30 @@ public class ComprarEntradaController {
     }
 
     public void prObtePreuMoneda(String moneda) {
-
+        try {
+            float f = FactoriaCasosUs.getInstance().getCtrlComprarEntrada().obtePreuMoneda(Moneda.valueOf(moneda));
+            view.mostraPreuMoneda(f, moneda);
+        } catch (Exception e) {
+            view.mostraMissatge("Servei de conversió de monedes no disponible");
+        }
     }
 
     public void prOkPagament(String dni, int codiB, String numCompte) {
-
+        try {
+            FactoriaCasosUs.getInstance().getCtrlComprarEntrada().pagament(dni, codiB, numCompte);
+            view.mostraMissatgeFi();
+        } catch (PagamentNoAutoritzat e) {
+            view.mostraMissatgeFiError();
+        } catch (NoExisteixDB e) {
+        } catch (ServeiNoDisponible e) {
+            view.mostraMissatge("Servei no disponible");
+        }
     }
 
     public void prCancel() {
         System.exit(0);
     }
+
+    public void prOkMissatgeFi() { System.exit(0);}
 
 }

@@ -15,14 +15,13 @@ public class ServiceLocator {
         return ourInstance;
     }
 
-    public Object find(String path) throws ServeiNoTrobat {
+    public Object find(String path) {
         if (path.equals("CurrencyConvertor")) {
            return new SvCurrencyConvertor();
         }
         else if (path.equals("BankService")) {
             return new SvBankService();
-        }
-        else throw new ServeiNoTrobat(path);
+        } else return null;
     }
 
 }

@@ -15,7 +15,7 @@ import java.util.Set;
 @Entity(name = Entrada.TABLE)
 @Table(name = Entrada.TABLE)
 public class Entrada {
-    final static String TABLE = "entrada";
+    public final static String TABLE = "entrada";
 
     private  String identificador;
     private  String dniClient;

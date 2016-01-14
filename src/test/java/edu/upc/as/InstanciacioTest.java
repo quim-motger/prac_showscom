@@ -19,6 +19,7 @@ public class InstanciacioTest {
     public void test() {
         UtilHibernate.emptyTable(SeientEnRepresentacio.TABLE);
         UtilHibernate.emptyTable(Estrena.TABLE);
+        UtilHibernate.emptyTable(Entrada.TABLE);
         UtilHibernate.emptyTable(Representacio.TABLE);
         UtilHibernate.emptyTable(Espectacle.TABLE);
         UtilHibernate.emptyTable(Sessio.TABLE);
