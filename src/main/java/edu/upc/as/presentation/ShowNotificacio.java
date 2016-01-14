@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by cpuig on 13/01/2016.
  */
-public class ShowNotificacio extends FormView{
+public class ShowNotificacio extends JFrame{
     private JPanel rootPanel;
     private JTextField messageNotif;
     private JButton OKButton;

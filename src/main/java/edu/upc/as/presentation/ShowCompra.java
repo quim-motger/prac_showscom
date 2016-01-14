@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by cpuig on 13/01/2016.
  */
-public class ShowCompra extends FormView{
+public class ShowCompra extends JFrame{
     private JPanel rootPanel;
     private JList monedesList;
     private JTextField totalPreuField;

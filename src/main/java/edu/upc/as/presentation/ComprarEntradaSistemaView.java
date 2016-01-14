@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class ComprarEntradaSistemaView implements ComprarEntradaView {
 
-    FormView c;
+    ComprarEntradaForm c;
     ComprarEntradaController ctrl;
 
     public void init(ComprarEntradaController ctrl) {

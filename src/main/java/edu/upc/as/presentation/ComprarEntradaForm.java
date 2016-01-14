@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by jmotger on 12/01/16.
  */
-public class ComprarEntradaForm extends FormView {
+public class ComprarEntradaForm extends JFrame {
 
 
     private JList espectaclesList;
@@ -52,7 +52,6 @@ public class ComprarEntradaForm extends FormView {
 
                 try {
                     Date d = data.parse(dataField.getText());
-                    System.out.println(d.toString());
                     ctrl.prOkConsultaRepresentacions(
                             (String) espectaclesList.getSelectedValue(), data.parse(dataField.getText()));
                 } catch (ParseException e1) {

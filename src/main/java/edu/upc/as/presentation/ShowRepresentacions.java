@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by jmotger on 13/01/16.
  */
-public class ShowRepresentacions extends FormView {
+public class ShowRepresentacions extends JFrame {
     private JPanel rootPanel;
     private JButton cancelButton;
     private JButton OKButton;

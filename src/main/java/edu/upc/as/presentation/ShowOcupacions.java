@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by cpuig on 13/01/2016.
  */
-public class ShowOcupacions extends FormView {
+public class ShowOcupacions extends JFrame {
     private JPanel rootPanel;
     private JButton cancelButton;
     private JButton OKButton;
@@ -24,7 +24,11 @@ public class ShowOcupacions extends FormView {
         pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
+        DefaultListModel resultList = new DefaultListModel();
+        ocupacioList.setModel(resultList);
+        System.out.println(ocup.size());
 
+        for (InfoOcupacio infoOcupacio : ocup) resultList.addElement(infoOcupacio.fila + " - " + infoOcupacio.columna);
 
         cancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

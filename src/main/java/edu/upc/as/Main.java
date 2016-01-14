@@ -75,6 +75,8 @@ public class Main {
         SeientEnRepresentacio sr9 = new SeientEnRepresentacio(s9, r3, null);
         SeientEnRepresentacio sr10 = new SeientEnRepresentacio(s10,r3, null);
 
+
+
     }
 
 }
