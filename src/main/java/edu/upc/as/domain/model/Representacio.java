@@ -1,8 +1,8 @@
 package edu.upc.as.domain.model;
 
-import edu.upc.as.domain.exception.SeientsNoDisponibles;
 import edu.upc.as.domain.utils.InfoOcupacio;
 import edu.upc.as.domain.utils.InfoRepresentacio;
+import edu.upc.as.exception.SeientsNoDisponibles;
 import edu.upc.as.hibernate.UtilHibernate;
 
 import javax.persistence.*;

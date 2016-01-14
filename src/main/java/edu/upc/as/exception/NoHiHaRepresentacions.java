@@ -1,4 +1,4 @@
-package edu.upc.as.domain.exception;
+package edu.upc.as.exception;
 
 import java.util.Date;
 
@@ -8,7 +8,7 @@ import java.util.Date;
  */
 public class NoHiHaRepresentacions extends Exception {
 
-    private static final String MESSAGE_FORMAT = "No hi ha cap representació amb títol %s$1 i data %s$2";
+    private static final String MESSAGE_FORMAT = "No hi ha cap representaciï¿½ amb tï¿½tol %s$1 i data %s$2";
 
     public NoHiHaRepresentacions(String titol, Date data) {
         super(String.format(MESSAGE_FORMAT, titol, data.toString()));

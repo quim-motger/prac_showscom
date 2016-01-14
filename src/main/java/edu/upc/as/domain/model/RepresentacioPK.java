@@ -15,6 +15,14 @@ public class RepresentacioPK implements Serializable {
     private String sessioId;
     private String localId;
 
+    public RepresentacioPK (String nomLocal, TipusSessio tipusSessio){
+        sessioId=tipusSessio.toString();
+        localId=nomLocal;
+    }
+
+    public RepresentacioPK() {
+    }
+
 
     public String getSessioId() {
         return sessioId;

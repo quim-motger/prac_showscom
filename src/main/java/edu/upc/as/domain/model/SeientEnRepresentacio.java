@@ -24,7 +24,7 @@ public class SeientEnRepresentacio {
     private Entrada entrada;
 
     public SeientEnRepresentacio(Seient seient, Entrada entrada) {
-        id = new SeientEnRepresentacioPK(seient);
+        id = new SeientEnRepresentacioPK(seient,entrada.getRepresentacio());
         this.entrada = entrada;
         estat = Estat.lliure;
         UtilHibernate.save(this);
@@ -64,4 +64,6 @@ public class SeientEnRepresentacio {
     public void setEntrada(Entrada entrada) {
         this.entrada = entrada;
     }
+
+
 }

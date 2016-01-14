@@ -1,6 +1,6 @@
 package edu.upc.as.domain.model2;
 
-import edu.upc.as.domain.exception.SeientsNoDisponibles;
+import edu.upc.as.exception.SeientsNoDisponibles;
 import edu.upc.as.domain.model.RepresentacioPK;
 import edu.upc.as.domain.utils.InfoOcupacio;
 import edu.upc.as.domain.utils.InfoRepresentacio;

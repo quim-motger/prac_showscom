@@ -3,6 +3,7 @@ package edu.upc.as.domain.controllers;
 import edu.upc.as.domain.datainterface.DataFactory;
 import edu.upc.as.domain.model.Espectacle;
 import edu.upc.as.domain.utils.InfoRepresentacio;
+import edu.upc.as.exception.NoExisteixDB;
 
 import java.util.Date;
 import java.util.LinkedList;
@@ -30,11 +31,16 @@ public class CtrlConsultarRepresentacions {
     }
 
     public List<InfoRepresentacio> consultaRepresentacions(String titol, Date data) {
-        return DataFactory
-                .getInstance()
-                .getCtrlEspectacle()
-                .getEspectacle(titol)
-                .getRepresentacions(data);
+        try {
+            return DataFactory
+                    .getInstance()
+                    .getCtrlEspectacle()
+                    .getEspectacle(titol)
+                    .getRepresentacions(data);
+        } catch (NoExisteixDB noExisteixDB) {
+            noExisteixDB.printStackTrace();
+        }
+        return null;
     }
 
 }

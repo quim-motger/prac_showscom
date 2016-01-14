@@ -14,7 +14,7 @@ import java.util.List;
 @Entity(name = Espectacle.TABLE)
 @Table(name = Espectacle.TABLE)
 public class Espectacle {
-    final static String TABLE = "espectacle";
+    public final static String TABLE = "espectacle";
 
     private String titol;
     private int participants;

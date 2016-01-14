@@ -1,4 +1,4 @@
-package edu.upc.as.domain.exception;
+package edu.upc.as.exception;
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ import java.util.Date;
 public class PagamentNoAutoritzat extends Exception {
 
     private static final String MESSAGE_FORMAT = "El pagament de l'usuari amb DNI %s$1" +
-            " i número de compte %s$2 del banc %d$3" +
+            " i nï¿½mero de compte %s$2 del banc %d$3" +
             " a la compta %s$4 del banc %d$5 per valor de %f$6 i amb data %s$7" +
             " no ha estat autoritzat.";
 

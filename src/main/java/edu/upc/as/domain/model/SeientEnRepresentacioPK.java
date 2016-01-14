@@ -19,8 +19,15 @@ public class SeientEnRepresentacioPK implements Serializable {
     @JoinColumns({@JoinColumn(name = "fila", referencedColumnName = "fila"), @JoinColumn(name = "columna", referencedColumnName = "columna"), @JoinColumn(name = "nomlocalseient", referencedColumnName = "nomlocal")})
     private Seient seient;
 
+    private String sessio;
+
     public SeientEnRepresentacioPK(Seient seient) {
         this.seient = seient;
+    }
+
+    public SeientEnRepresentacioPK(Seient seient, Representacio representacio) {
+        this.seient = seient;
+        this.sessio = representacio.getSessio().getSessioString();
     }
 
     public SeientEnRepresentacioPK() {
@@ -30,7 +37,16 @@ public class SeientEnRepresentacioPK implements Serializable {
         return seient;
     }
 
+
     public void setSeient(Seient seient) {
         this.seient = seient;
+    }
+
+    public String getSessio() {
+        return sessio;
+    }
+
+    public void setSessio(String sessio) {
+        this.sessio = sessio;
     }
 }

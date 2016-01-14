@@ -1,4 +1,4 @@
-package edu.upc.as.domain.exception;
+package edu.upc.as.exception;
 
 /**
  * Created by jmotger on 12/01/16.
