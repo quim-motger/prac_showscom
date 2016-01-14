@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Embeddable
 public class SeientEnRepresentacioPK implements Serializable {
     @ManyToOne
-    @JoinColumns({@JoinColumn(name = "fila", referencedColumnName = "fila", nullable = false), @JoinColumn(name = "columna", referencedColumnName = "columna", nullable = false), @JoinColumn(name = "nomlocalrep", referencedColumnName = "nomlocal", nullable = false)})
+    @JoinColumns({@JoinColumn(name = "fila", referencedColumnName = "fila", nullable = false), @JoinColumn(name = "columna", referencedColumnName = "columna", nullable = false), @JoinColumn(name = "nomlocalseient", referencedColumnName = "nomlocal", nullable = false)})
     private Seient seient;
 
     public Seient getSeient() {
