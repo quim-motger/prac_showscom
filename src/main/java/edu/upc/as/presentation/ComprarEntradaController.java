@@ -6,6 +6,7 @@ import edu.upc.as.domain.utils.InfoOcupacio;
 import edu.upc.as.domain.utils.InfoRepresentacio;
 
 import javax.swing.text.View;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class ComprarEntradaController {
         view.init(this);
     }
 
-    public void prOkConsultaRepresentacions(String titol, Date data) {
+    public void prOkConsultaRepresentacions(String titol, Date data) /*throws ParseException*/ {
         view.mostraRepresentacions(null);
     }
 

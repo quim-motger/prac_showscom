@@ -19,9 +19,11 @@ public class ShowCompra extends JFrame{
     private JButton cancelButton;
     private JButton OKButton;
     private JLabel errorMessage;
+    private ComprarEntradaController ctrl;
 
-    public ShowCompra (ComprarEntradaController ctrl) {
+    public ShowCompra (ComprarEntradaController c) {
         super("Comprar Entrada");
+        this.ctrl = c;
         setContentPane(rootPanel);
         pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -32,12 +34,12 @@ public class ShowCompra extends JFrame{
         });
         OKButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                ctrl.prOkPagament(dniField.getText(),Integer.parseInt(codiBancField.getText()), nCompteField.getText());
             }
         });
         canviMonedaButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                ctrl.prObtePreuMoneda((String)monedesList.getSelectedValue());
             }
         });
         setVisible(true);
