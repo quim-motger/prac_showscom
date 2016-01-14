@@ -43,20 +43,20 @@ public class Representacio {
 
 
     @OneToMany
-    @JoinColumns({@JoinColumn(name = "sessio", referencedColumnName = "sessio", nullable = false), @JoinColumn(name = "nomlocal", referencedColumnName = "nomlocal", nullable = false)})
+    @JoinColumns({@JoinColumn(name = "sessio", referencedColumnName = "sessio"), @JoinColumn(name = "nomlocal", referencedColumnName = "nomlocal")})
     private List<SeientEnRepresentacio> seientsEnRepresentacio;
 
     @EmbeddedId
     private RepresentacioPK id;
 
     public Representacio(Date data, float preu, int nombreSeientsLliures, Local local, Sessio sessio) {
+        id = new RepresentacioPK();
         this.data = data;
         this.preu = preu;
         this.nombreSeientsLliures = nombreSeientsLliures;
         this.local = local;
         this.sessio = sessio;
         seientsEnRepresentacio = new LinkedList<SeientEnRepresentacio>();
-        id = new RepresentacioPK();
         UtilHibernate.save(this);
     }
 

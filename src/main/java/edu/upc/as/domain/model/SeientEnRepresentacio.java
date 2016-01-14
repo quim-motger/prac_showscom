@@ -23,10 +23,10 @@ public class SeientEnRepresentacio {
     @JoinColumn(name = "identificadorentrada", referencedColumnName = "identificador")
     private Entrada entrada;
 
-    public SeientEnRepresentacio(Seient seient) {
-        id.setSeient(seient);
+    public SeientEnRepresentacio(Seient seient, Entrada entrada) {
+        id = new SeientEnRepresentacioPK(seient);
+        this.entrada = entrada;
         estat = Estat.lliure;
-        id = new SeientEnRepresentacioPK();
         UtilHibernate.save(this);
     }
 

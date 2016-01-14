@@ -3,6 +3,7 @@ package edu.upc.as;
 import edu.upc.as.domain.model.*;
 import org.junit.Test;
 
+import java.util.Collections;
 import java.util.Date;
 
 /**
@@ -41,6 +42,14 @@ public class PersistenceTest {
         Local l1 = new Local("Teatre Jove Regina 2", "Carrer de Sèneca, 22, 08006 Barcelona");
 
         Representacio r = new Representacio(new Date(),5,2,l1,tarda);
+
+
+        Seient s1 = new Seient(1,2,l1);
+
+        SeientEnRepresentacio sr = new SeientEnRepresentacio(s1,entrada);
+
+        entrada.setRepresentacioISeients(r, Collections.singletonList(sr));
+
         Entrada entrada2 =new Entrada("test2",6,new Date(),0);
         Entrada entrada3 =new Entrada("test3",6,new Date(),0);
 
