@@ -1,5 +1,7 @@
 package edu.upc.as.domain.model;
 
+import edu.upc.as.hibernate.UtilHibernate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,6 +17,7 @@ public class Sessio {
 
     public Sessio(TipusSessio sessio) {
         this.sessio = sessio;
+        UtilHibernate.save(this);
     }
 
     public Sessio() {

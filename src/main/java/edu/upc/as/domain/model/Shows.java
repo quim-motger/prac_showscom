@@ -8,19 +8,21 @@ import java.util.List;
  */
 public class Shows {
 
+    private static Shows ourInstance = new Shows();
     private final int codiBanc = -1;
     private final String numCompte = "";
     private final Moneda divisa = Moneda.EUR;
     private final List<Moneda> canvis = new LinkedList<Moneda>();
     private final float comissio = 0.0f;
 
-    private static Shows ourInstance = new Shows();
+    private Shows() {
+        canvis.add(Moneda.USD);
+        canvis.add(Moneda.GBP);
+
+    }
 
     public static Shows getInstance() {
         return ourInstance;
-    }
-
-    private Shows() {
     }
 
     public List<Moneda> getCanvis() {

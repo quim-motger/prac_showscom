@@ -3,6 +3,7 @@ package edu.upc.as.domain.model;
 import edu.upc.as.domain.exception.SeientsNoDisponibles;
 import edu.upc.as.domain.utils.InfoOcupacio;
 import edu.upc.as.domain.utils.InfoRepresentacio;
+import edu.upc.as.hibernate.UtilHibernate;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -30,12 +31,12 @@ public class Representacio {
     @Column(name = "nombreseienslliures")
     private int nombreSeientsLliures;
 
-    @MapsId("nomLocal")
+    @MapsId("localId")
     @ManyToOne
     @JoinColumn(name = "nomlocal", referencedColumnName = "nom", nullable = false)
     private Local local;
 
-    @MapsId("sessio")
+    @MapsId("sessioId")
     @ManyToOne
     @JoinColumn(name = "sessio", referencedColumnName = "sessio")
     private Sessio sessio;
@@ -55,9 +56,16 @@ public class Representacio {
         this.local = local;
         this.sessio = sessio;
         seientsEnRepresentacio = new LinkedList<SeientEnRepresentacio>();
+        id = new RepresentacioPK();
+        UtilHibernate.save(this);
     }
 
     public Representacio() {
+        id = new RepresentacioPK();
+    }
+
+    public void setNomLocal(String nomLocal){
+        id.setLocalId(nomLocal);
     }
 
 
@@ -149,6 +157,7 @@ public class Representacio {
 
     public void ocupa(int nOcupants) {
         nombreSeientsLliures -= nOcupants;
+        UtilHibernate.update(this);
     }
 
     public boolean isEstrena() {

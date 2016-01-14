@@ -1,6 +1,7 @@
 package edu.upc.as.domain.model;
 
 import edu.upc.as.hibernate.UtilHibernate;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -44,6 +45,8 @@ public class Entrada {
     }
 
     @Id
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     @Column(name = "identificador")
     public String getIdentificador() {
         return identificador;

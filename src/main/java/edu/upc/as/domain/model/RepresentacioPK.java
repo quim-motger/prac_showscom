@@ -12,24 +12,24 @@ import java.io.Serializable;
  */
 @Embeddable
 public class RepresentacioPK implements Serializable {
-    private String sessio;
-    private String nomLocal;
+    private String sessioId;
+    private String localId;
 
 
-    public String getSessio() {
-        return sessio;
+    public String getSessioId() {
+        return sessioId;
     }
 
-    public void setSessio(String sessio) {
-        this.sessio = sessio;
+    public void setSessioId(String sessio) {
+        this.sessioId = sessio;
     }
 
-    public String getNomLocal() {
-        return nomLocal;
+    public String getLocalId() {
+        return localId;
     }
 
-    public void setNomLocal(String nomlocal) {
-        this.nomLocal = nomlocal;
+    public void setLocalId(String nomlocal) {
+        this.localId = nomlocal;
     }
 
     @Override
@@ -39,16 +39,16 @@ public class RepresentacioPK implements Serializable {
 
         RepresentacioPK that = (RepresentacioPK) o;
 
-        if (sessio != null ? !sessio.equals(that.sessio) : that.sessio != null) return false;
-        if (nomLocal != null ? !nomLocal.equals(that.nomLocal) : that.nomLocal != null) return false;
+        if (sessioId != null ? !sessioId.equals(that.sessioId) : that.sessioId != null) return false;
+        if (localId != null ? !localId.equals(that.localId) : that.localId != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = sessio != null ? sessio.hashCode() : 0;
-        result = 31 * result + (nomLocal != null ? nomLocal.hashCode() : 0);
+        int result = sessioId != null ? sessioId.hashCode() : 0;
+        result = 31 * result + (localId != null ? localId.hashCode() : 0);
         return result;
     }
 }

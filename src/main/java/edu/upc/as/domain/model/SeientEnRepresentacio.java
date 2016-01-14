@@ -1,6 +1,7 @@
 package edu.upc.as.domain.model;
 
 import edu.upc.as.domain.utils.InfoOcupacio;
+import edu.upc.as.hibernate.UtilHibernate;
 
 import javax.persistence.*;
 
@@ -25,13 +26,17 @@ public class SeientEnRepresentacio {
     public SeientEnRepresentacio(Seient seient) {
         id.setSeient(seient);
         estat = Estat.lliure;
+        id = new SeientEnRepresentacioPK();
+        UtilHibernate.save(this);
     }
 
     public SeientEnRepresentacio() {
+        id = new SeientEnRepresentacioPK();
     }
 
     public void ocupa() {
         estat = Estat.ocupat;
+        UtilHibernate.update(this);
     }
 
     public Estat getEstat() {

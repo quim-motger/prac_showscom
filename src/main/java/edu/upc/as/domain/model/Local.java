@@ -1,5 +1,7 @@
 package edu.upc.as.domain.model;
 
+import edu.upc.as.hibernate.UtilHibernate;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,6 +21,7 @@ public class Local {
     public Local(String nom, String adreca) {
         this.nom = nom;
         this.adreca = adreca;
+        UtilHibernate.save(this);
     }
 
     public Local() {

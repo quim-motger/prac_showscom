@@ -1,5 +1,7 @@
 package edu.upc.as.domain.model;
 
+import edu.upc.as.hibernate.UtilHibernate;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -16,6 +18,7 @@ public class Estrena extends Representacio {
     public Estrena(Date data, float preu, int nombreSeientsLliures, Local local, float recarrec, Sessio sessio) {
         super(data, preu, nombreSeientsLliures, local, sessio);
         this.recarrec = recarrec;
+        UtilHibernate.save(this);
     }
 
     public Estrena() {

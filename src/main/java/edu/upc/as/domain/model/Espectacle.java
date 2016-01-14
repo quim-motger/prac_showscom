@@ -1,6 +1,7 @@
 package edu.upc.as.domain.model;
 
 import edu.upc.as.domain.utils.InfoRepresentacio;
+import edu.upc.as.hibernate.UtilHibernate;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -23,6 +24,7 @@ public class Espectacle {
         this.titol = titol;
         this.participants = participants;
         representacions = new LinkedList<Representacio>();
+        UtilHibernate.save(this);
     }
 
     public Espectacle() {
