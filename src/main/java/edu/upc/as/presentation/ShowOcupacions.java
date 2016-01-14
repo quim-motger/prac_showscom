@@ -40,9 +40,14 @@ public class ShowOcupacions extends JFrame {
                 c.prOkSeleccionaSeients(null);
             }
         });
+        setVisible(true);
     }
 
     public JPanel getRootPanel() {
         return rootPanel;
+    }
+
+    public void setErrorMessage(String message) {
+        errorMessage.setText(message);
     }
 }

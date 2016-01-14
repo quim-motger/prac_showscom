@@ -58,10 +58,15 @@ public class ShowRepresentacions extends JFrame {
                 }
             }
         });
+        setVisible(true);
     }
 
     public JPanel getRootPanel() {
         return rootPanel;
+    }
+
+    public void setErrorMessage(String message) {
+        errorMessage.setText(message);
     }
 
 }

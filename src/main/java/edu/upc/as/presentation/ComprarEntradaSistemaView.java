@@ -3,6 +3,7 @@ package edu.upc.as.presentation;
 import edu.upc.as.domain.utils.InfoOcupacio;
 import edu.upc.as.domain.utils.InfoRepresentacio;
 
+import javax.swing.*;
 import java.util.List;
 
 /**
@@ -10,8 +11,10 @@ import java.util.List;
  */
 public class ComprarEntradaSistemaView implements ComprarEntradaView {
 
-    ComprarEntradaForm c;
+    JFrame c;
     ComprarEntradaController ctrl;
+
+    int i = 0;
 
     public void init(ComprarEntradaController ctrl) {
         c = new ComprarEntradaForm(ctrl);
@@ -19,13 +22,15 @@ public class ComprarEntradaSistemaView implements ComprarEntradaView {
     }
 
     public void mostraRepresentacions(List<InfoRepresentacio> repre) {
-        ShowRepresentacions cc = new ShowRepresentacions(ctrl, repre);
-        c.setRootPanel(cc.getRootPanel());
+        ++i;
+        c.setVisible(false);
+        c = new ShowRepresentacions(ctrl, repre);
     }
 
     public void mostraOcupacions(List<InfoOcupacio> ocup) {
-        ShowOcupacions cc = new ShowOcupacions(ctrl, ocup);
-        c.setRootPanel(cc.getRootPanel());
+        ++i;
+        c.setVisible(false);
+        c = new ShowOcupacions(ctrl, ocup);
     }
 
     public void mostraPreu(float preu, List<String> canvis) {
@@ -37,7 +42,8 @@ public class ComprarEntradaSistemaView implements ComprarEntradaView {
     }
 
     public void mostraMissatge(String missatge) {
-        c.setErrorMessage(missatge);
+        if (i == 0) ((ComprarEntradaForm) c).setErrorMessage(missatge);
+        else if (i == 1) ((ShowRepresentacions) c).setErrorMessage(missatge);
     }
 
     public void mostraMissatgeFi() {

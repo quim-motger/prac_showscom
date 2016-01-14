@@ -29,6 +29,7 @@ public class ComprarEntradaForm extends JFrame {
     private DateFormat data;
 
     public ComprarEntradaForm(ComprarEntradaController c)  {
+        super("Comprar Entrada");
         this.ctrl = c;
         setContentPane(rootPanel);
         pack();
@@ -62,13 +63,14 @@ public class ComprarEntradaForm extends JFrame {
         setVisible(true);
     }
 
-    public void setRootPanel(JPanel rootPanel) {
-        this.rootPanel = rootPanel;
-        setContentPane(rootPanel);
+    public JPanel getRootPanel() {
+        return rootPanel;
     }
 
     public void setErrorMessage(String message) {
         errorMessage.setText(message);
     }
+
+
 
 }

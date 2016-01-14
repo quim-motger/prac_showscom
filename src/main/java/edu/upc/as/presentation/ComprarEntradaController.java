@@ -31,14 +31,10 @@ public class ComprarEntradaController {
             List<InfoRepresentacio> infoRepresentacios = null;
             try {
                 infoRepresentacios = FactoriaCasosUs.getInstance().getCtrlConsultarRepresentacions().consultaRepresentacions(titol, data);
+                view.mostraRepresentacions(infoRepresentacios);
             } catch (NoExisteixDB noExisteixDB) {
                 view.mostraMissatge("Espectacle seleccionat no té representacions");
                 return;
-            }
-            if (infoRepresentacios!=null && infoRepresentacios.size() == 0) {
-                view.mostraMissatge("Espectacle seleccionat no té representacions");
-            } else {
-                view.mostraRepresentacions(infoRepresentacios);
             }
         }
     }

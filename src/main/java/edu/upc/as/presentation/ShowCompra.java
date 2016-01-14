@@ -48,4 +48,8 @@ public class ShowCompra extends JFrame{
         return rootPanel;
     }
 
+    public void setErrorMessage(String message) {
+        errorMessage.setText(message);
+    }
+
 }
