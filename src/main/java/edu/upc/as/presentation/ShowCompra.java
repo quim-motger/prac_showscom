@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by cpuig on 13/01/2016.
  */
-public class ShowCompra extends JFrame{
+public class ShowCompra extends FormView{
     private JPanel rootPanel;
     private JList monedesList;
     private JTextField totalPreuField;
@@ -22,7 +22,6 @@ public class ShowCompra extends JFrame{
     private ComprarEntradaController ctrl;
 
     public ShowCompra (ComprarEntradaController c) {
-        super("Comprar Entrada");
         this.ctrl = c;
         setContentPane(rootPanel);
         pack();

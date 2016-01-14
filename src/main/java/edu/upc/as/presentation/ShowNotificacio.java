@@ -7,13 +7,12 @@ import java.awt.event.ActionListener;
 /**
  * Created by cpuig on 13/01/2016.
  */
-public class ShowNotificacio extends JFrame{
+public class ShowNotificacio extends FormView{
     private JPanel rootPanel;
     private JTextField messageNotif;
     private JButton OKButton;
 
     public ShowNotificacio () {
-        super("Comprar Entrada");
         setContentPane(rootPanel);
         pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

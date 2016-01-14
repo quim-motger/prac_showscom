@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by jmotger on 13/01/16.
  */
-public class ShowRepresentacions extends JFrame {
+public class ShowRepresentacions extends FormView {
     private JPanel rootPanel;
     private JButton cancelButton;
     private JButton OKButton;
@@ -22,7 +22,6 @@ public class ShowRepresentacions extends JFrame {
     private ComprarEntradaController ctrl;
 
     public ShowRepresentacions(ComprarEntradaController c, List<InfoRepresentacio> repre) {
-        super("Comprar Entrada");
         this.ctrl = c;
         setContentPane(rootPanel);
         pack();

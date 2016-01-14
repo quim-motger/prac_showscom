@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by jmotger on 12/01/16.
  */
-public class ComprarEntradaForm extends JFrame {
+public class ComprarEntradaForm extends FormView {
 
 
     private JList espectaclesList;
@@ -29,7 +29,6 @@ public class ComprarEntradaForm extends JFrame {
     private DateFormat data;
 
     public ComprarEntradaForm(ComprarEntradaController c)  {
-        super("Comprar Entrada");
         this.ctrl = c;
         setContentPane(rootPanel);
         pack();

@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by cpuig on 13/01/2016.
  */
-public class ShowOcupacions extends JFrame {
+public class ShowOcupacions extends FormView {
     private JPanel rootPanel;
     private JButton cancelButton;
     private JTable table1;
@@ -16,7 +16,6 @@ public class ShowOcupacions extends JFrame {
     private ComprarEntradaController c;
 
     public ShowOcupacions(ComprarEntradaController ctrl) {
-        super("Comprar Entrada");
         this.c = ctrl;
         setContentPane(rootPanel);
         pack();
