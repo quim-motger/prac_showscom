@@ -26,7 +26,6 @@ public class ShowOcupacions extends JFrame {
 
         DefaultListModel resultList = new DefaultListModel();
         ocupacioList.setModel(resultList);
-        System.out.println(ocup.size());
 
         for (InfoOcupacio infoOcupacio : ocup) resultList.addElement(infoOcupacio.fila + " - " + infoOcupacio.columna);
 

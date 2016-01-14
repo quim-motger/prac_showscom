@@ -44,6 +44,8 @@ public class ComprarEntradaSistemaView implements ComprarEntradaView {
     public void mostraMissatge(String missatge) {
         if (i == 0) ((ComprarEntradaForm) c).setErrorMessage(missatge);
         else if (i == 1) ((ShowRepresentacions) c).setErrorMessage(missatge);
+        else if (i == 2) ((ShowOcupacions) c).setErrorMessage(missatge);
+        else if (i == 3) ((ShowCompra) c).setErrorMessage(missatge);
     }
 
     public void mostraMissatgeFi() {
