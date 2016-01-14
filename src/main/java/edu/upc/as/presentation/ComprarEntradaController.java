@@ -27,7 +27,7 @@ public class ComprarEntradaController {
 
     public void prOkConsultaRepresentacions(String titol, Date data) /*throws ParseException*/ {
         if (titol == null || titol.equals("") || data == null || data.equals("")) {
-            view.mostraMissatge("Informació no seleccionada");
+            view.mostraMissatge("No s'ha seleccionat l'espectacle");
         }
         else {
             List<InfoRepresentacio> infoRepresentacios = null;

@@ -52,7 +52,7 @@ public class ShowRepresentacions extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String s = (String) representacionsList.getSelectedValue();
                 if (s == null) {
-                    errorMessage.setText("Falta informació");
+                    errorMessage.setText("No s'ha seleccionat la representació");
                 } else {
                     String info[] = s.split(" - ");
                     int n = (Integer) nEspectadors.getValue();

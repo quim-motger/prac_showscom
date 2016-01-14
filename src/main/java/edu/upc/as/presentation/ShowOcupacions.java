@@ -42,19 +42,14 @@ public class ShowOcupacions extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 List<String> l =  ocupacioList.getSelectedValuesList();
                 List<InfoOcupacio> ocup = new ArrayList<InfoOcupacio>();
-                if (l == null) {
-                    errorMessage.setText("Falta informació");
+                for (String s : l) {
+                    String info[] = s.split(" - ");
+                    InfoOcupacio i = new InfoOcupacio();
+                    i.fila = Integer.parseInt(info[0]);
+                    i.columna = Integer.parseInt(info[1]);
+                    ocup.add(i);
                 }
-                else {
-                    for (String s : l) {
-                        String info[] = s.split(" - ");
-                        InfoOcupacio i = new InfoOcupacio();
-                        i.fila = Integer.parseInt(info[0]);
-                        i.columna = Integer.parseInt(info[1]);
-                        ocup.add(i);
-                    }
-                    c.prOkSeleccionaSeients(ocup);
-                }
+                c.prOkSeleccionaSeients(ocup);
             }
         });
         setVisible(true);

@@ -4,8 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by cpuig on 13/01/2016.
@@ -36,6 +39,8 @@ public class ShowCompra extends JFrame{
 
         setMinimumSize(new Dimension(600,300));
 
+
+
         for (String s : canvis) resultList.addElement(s);
 
         this.preu.setText(String.valueOf(Math.round(preu*100.0)/100.0));
@@ -48,7 +53,7 @@ public class ShowCompra extends JFrame{
         OKButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (dniField.getText().equals("") || codiBancField.getText().equals("") || nCompteField.getText().equals("")) {
-                    errorMessage.setText("Falta informació");
+                    errorMessage.setText("No s'han introduït totes les dades per realitzar la compra");
                 } else {
                     try {
                         int i = Integer.parseInt(codiBancField.getText());

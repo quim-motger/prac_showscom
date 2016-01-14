@@ -51,7 +51,6 @@ public class ComprarEntradaForm extends JFrame {
         });
         okButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
                 ctrl.prOkConsultaRepresentacions(
                         (String) espectaclesList.getSelectedValue(), dataField.getDate());
             }
