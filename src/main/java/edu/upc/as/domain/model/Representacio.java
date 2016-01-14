@@ -183,13 +183,13 @@ public class Representacio {
     }
 
     public boolean isData(Date data, InfoRepresentacio info) {
-        if (sameDay(this.data,data))
-            return false;
         info.nomLocal = getLocal().getNom();
         info.sessio = getSessio().getSessio();
         info.nombreSeientsLliures = getNombreSeientsLliures();
         info.estrena = isEstrena();
         info.preu = getPreu();
+        if (sameDay(this.data,data))
+            return false;
         return true;
     }
 

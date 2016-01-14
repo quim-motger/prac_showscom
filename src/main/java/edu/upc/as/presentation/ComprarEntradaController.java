@@ -1,13 +1,11 @@
 package edu.upc.as.presentation;
 
 import edu.upc.as.domain.controllers.FactoriaCasosUs;
-import edu.upc.as.domain.model.Representacio;
 import edu.upc.as.domain.utils.InfoOcupacio;
 import edu.upc.as.domain.utils.InfoRepresentacio;
 import edu.upc.as.exception.SeientsNoDisponibles;
+import edu.upc.as.exception.NoExisteixDB;
 
-import javax.swing.text.View;
-import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -30,7 +28,18 @@ public class ComprarEntradaController {
             view.mostraMissatge("Informació no seleccionada");
         }
         else {
-            view.mostraRepresentacions(FactoriaCasosUs.getInstance().getCtrlConsultarRepresentacions().consultaRepresentacions(titol, data));
+            List<InfoRepresentacio> infoRepresentacios = null;
+            try {
+                infoRepresentacios = FactoriaCasosUs.getInstance().getCtrlConsultarRepresentacions().consultaRepresentacions(titol, data);
+            } catch (NoExisteixDB noExisteixDB) {
+                view.mostraMissatge("Espectacle seleccionat no té representacions");
+                return;
+            }
+            if (infoRepresentacios!=null && infoRepresentacios.size() == 0) {
+                view.mostraMissatge("Espectacle seleccionat no té representacions");
+            } else {
+                view.mostraRepresentacions(infoRepresentacios);
+            }
         }
     }
 

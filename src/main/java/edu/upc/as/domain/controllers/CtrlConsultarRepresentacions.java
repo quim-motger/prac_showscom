@@ -30,17 +30,13 @@ public class CtrlConsultarRepresentacions {
         return titols;
     }
 
-    public List<InfoRepresentacio> consultaRepresentacions(String titol, Date data) {
-        try {
+    public List<InfoRepresentacio> consultaRepresentacions(String titol, Date data) throws NoExisteixDB{
             return DataFactory
                     .getInstance()
                     .getCtrlEspectacle()
                     .getEspectacle(titol)
                     .getRepresentacions(data);
-        } catch (NoExisteixDB noExisteixDB) {
-            noExisteixDB.printStackTrace();
-        }
-        return null;
+
     }
 
 }

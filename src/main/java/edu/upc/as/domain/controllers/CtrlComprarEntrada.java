@@ -36,10 +36,15 @@ public class CtrlComprarEntrada {
     }
 
     public List<InfoRepresentacio> obteRepresentacions(String titol, Date data) throws NoHiHaRepresentacions {
-        List<InfoRepresentacio> inf = FactoriaCasosUs
-                .getInstance()
-                .getCtrlConsultarRepresentacions()
-                .consultaRepresentacions(titol, data);
+        List<InfoRepresentacio> inf = null;
+        try {
+            inf = FactoriaCasosUs
+                    .getInstance()
+                    .getCtrlConsultarRepresentacions()
+                    .consultaRepresentacions(titol, data);
+        } catch (NoExisteixDB noExisteixDB) {
+            throw new NoHiHaRepresentacions(titol, data);
+        }
         if (inf.isEmpty())
             throw new NoHiHaRepresentacions(titol, data);
         return inf;
