@@ -18,11 +18,31 @@ import java.util.List;
 public class Representacio {
     final static String TABLE = "representacio";
 
+    @Basic
+    @Column(name = "data")
     private  Date data;
+
+    @Basic
+    @Column(name = "preu")
     private float preu;
+
+    @Basic
+    @Column(name = "nombreseienslliures")
     private int nombreSeientsLliures;
+
+    @MapsId("nomLocal")
+    @ManyToOne
+    @JoinColumn(name = "nomlocal", referencedColumnName = "nom", nullable = false)
     private Local local;
+
+    @MapsId("sessio")
+    @ManyToOne
+    @JoinColumn(name = "sessio", referencedColumnName = "sessio")
     private Sessio sessio;
+
+
+    @OneToMany
+    @JoinColumns({@JoinColumn(name = "sessio", referencedColumnName = "sessio", nullable = false), @JoinColumn(name = "nomlocal", referencedColumnName = "nomlocal", nullable = false)})
     private List<SeientEnRepresentacio> seientsEnRepresentacio;
 
     @EmbeddedId
@@ -40,8 +60,7 @@ public class Representacio {
     public Representacio() {
     }
 
-    @Basic
-    @Column(name = "data")
+
     public Date getData() {
         return data;
     }
@@ -50,8 +69,6 @@ public class Representacio {
         this.data = data;
     }
 
-    @Basic
-    @Column(name = "preu")
     public float getPreu() {
         return preu;
     }
@@ -60,9 +77,7 @@ public class Representacio {
         this.preu = preu;
     }
 
-    @MapsId("sessio")
-    @ManyToOne
-    @JoinColumn(name = "sessio", referencedColumnName = "sessio")
+
     public Sessio getSessio() {
         return sessio;
     }
@@ -71,8 +86,6 @@ public class Representacio {
         this.sessio = sessio;
     }
 
-    @OneToMany
-    @JoinColumns({@JoinColumn(name = "sessio", referencedColumnName = "sessio", nullable = false), @JoinColumn(name = "nomlocal", referencedColumnName = "nomlocal")})
     public List<SeientEnRepresentacio> getSeientsEnRepresentacio() {
         return seientsEnRepresentacio;
     }
@@ -89,8 +102,7 @@ public class Representacio {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "nombreseienslliures")
+
     public int getNombreSeientsLliures() {
         return nombreSeientsLliures;
     }
@@ -99,9 +111,7 @@ public class Representacio {
         this.nombreSeientsLliures = nombreSeientsLliures;
     }
 
-    @MapsId("nomLocal")
-    @ManyToOne
-    @JoinColumn(name = "nomlocal", referencedColumnName = "nom", nullable = false)
+
     public Local getLocal() {
         return local;
     }

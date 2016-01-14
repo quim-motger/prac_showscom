@@ -9,12 +9,18 @@ import javax.persistence.*;
  */
 @Entity(name = SeientEnRepresentacio.TABLE)
 @Table(name = SeientEnRepresentacio.TABLE, schema = "public", catalog = "showscom")
-@IdClass(SeientEnRepresentacioPK.class)
 public class SeientEnRepresentacio {
     final static String TABLE = "seient_en_representacio";
     @EmbeddedId
     SeientEnRepresentacioPK id;
+
+    @Basic
+    @Column(name = "estat")
     private Estat estat;
+
+    @ManyToOne
+    @JoinColumn(name = "identificadorentrada", referencedColumnName = "identificador")
+    private Entrada entrada;
 
     public SeientEnRepresentacio(Seient seient) {
         id.setSeient(seient);
@@ -36,12 +42,6 @@ public class SeientEnRepresentacio {
         this.estat = estat;
     }
 
-    @Basic
-    @Column(name = "estat")
-    public String getEstatString() {
-        return estat.toString();
-    }
-
     public boolean getInfoLliure(InfoOcupacio info) {
         if (estat == Estat.lliure) {
             info.fila = id.getSeient().getFila();
@@ -51,4 +51,12 @@ public class SeientEnRepresentacio {
         else return false;
     }
 
+   @Transient
+    public Entrada getEntrada() {
+        return entrada;
+    }
+
+    public void setEntrada(Entrada entrada) {
+        this.entrada = entrada;
+    }
 }

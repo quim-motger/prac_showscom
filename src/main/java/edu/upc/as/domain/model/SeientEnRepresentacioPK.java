@@ -15,10 +15,10 @@ import java.io.Serializable;
  */
 @Embeddable
 public class SeientEnRepresentacioPK implements Serializable {
+    @ManyToOne
+    @JoinColumns({@JoinColumn(name = "fila", referencedColumnName = "fila", nullable = false), @JoinColumn(name = "columna", referencedColumnName = "columna", nullable = false), @JoinColumn(name = "nomlocalrep", referencedColumnName = "nomlocal", nullable = false)})
     private Seient seient;
 
-    @ManyToOne
-    @JoinColumns({@JoinColumn(name = "fila", referencedColumnName = "fila", nullable = false), @JoinColumn(name = "columna", referencedColumnName = "columna", nullable = false), @JoinColumn(name = "nomlocal", referencedColumnName = "nomlocal", nullable = false)})
     public Seient getSeient() {
         return seient;
     }

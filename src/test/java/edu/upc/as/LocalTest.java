@@ -34,7 +34,7 @@ public class LocalTest {
         Local l1 = new Local("Teatre Apolo", "Av. Paralel");
         Local l2 = new Local("Teatre Borras", "Pl. Urquinaona");
         Local l3 = new Local("Razzmatazz", "Poblenou");
-        session.save(l1);
+        UtilHibernate.save(l1);
         session.save(l2);
         session.save(l3);
     }

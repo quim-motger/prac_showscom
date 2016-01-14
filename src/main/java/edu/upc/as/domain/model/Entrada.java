@@ -103,8 +103,7 @@ public class Entrada {
         this.representacio = representacio;
     }
 
-    @OneToMany
-    @JoinColumn(name = "identificador", referencedColumnName = "identificadorentrada")
+    @OneToMany(mappedBy = "entrada")
     public List<SeientEnRepresentacio> getSeientsEnRepresentacio() {
         return seientsEnRepresentacio;
     }
