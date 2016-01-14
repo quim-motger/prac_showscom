@@ -3,33 +3,37 @@ package edu.upc.as.presentation;
 import edu.upc.as.domain.utils.InfoRepresentacio;
 
 import javax.swing.*;
-import javax.swing.table.TableColumn;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by jmotger on 13/01/16.
  */
 public class ShowRepresentacions extends JFrame {
+    private final List<InfoRepresentacio> repre;
     private JPanel rootPanel;
     private JButton cancelButton;
     private JButton OKButton;
     private JLabel errorMessage;
-    private JTextField nEspectadorsField;
-    private JList representacionsList;
     private JSpinner nEspectadors;
+    private JTable representacions;
     private ComprarEntradaController ctrl;
 
-    public ShowRepresentacions(ComprarEntradaController c, List<InfoRepresentacio> repre) {
+    public ShowRepresentacions(ComprarEntradaController c, final List<InfoRepresentacio> repre) {
+        this.repre = repre;
         this.ctrl = c;
         setContentPane(rootPanel);
         pack();
+        setMinimumSize(new Dimension(600, 300));
+        List<String> headers = Arrays.asList("Nom local", "Sessio", "Seients lliures", "Estrena", "Preu");
 
-        final DefaultListModel resultList = new DefaultListModel();
-        representacionsList.setModel(resultList);
-        setMinimumSize(new Dimension(600,300));
+        DefaultTableModel tableModel = new DefaultTableModel();
+        tableModel.setColumnIdentifiers(headers.toArray());
+        representacions.setModel(tableModel);
 
         SpinnerNumberModel spinnerNumberModel = new SpinnerNumberModel();
         spinnerNumberModel.setValue(1);
@@ -39,9 +43,10 @@ public class ShowRepresentacions extends JFrame {
             String s;
             if (r.estrena) s = "Estrena";
             else s = "No estrena";
-            resultList.addElement(r.nomLocal + " - " + r.sessio + " - " + r.nombreSeientsLliures + " - " + s + " - " + r.preu);
+            tableModel.addRow(Arrays.asList(r.nomLocal, r.sessio, r.nombreSeientsLliures, s, r.preu).toArray());
         }
 
+        representacions.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         cancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -50,13 +55,13 @@ public class ShowRepresentacions extends JFrame {
         });
         OKButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String s = (String) representacionsList.getSelectedValue();
-                if (s == null) {
+                int i = representacions.getSelectedColumn()-2;
+                if (i <0) {
                     errorMessage.setText("No s'ha seleccionat la representació");
                 } else {
-                    String info[] = s.split(" - ");
                     int n = (Integer) nEspectadors.getValue();
-                    ctrl.prOkConsultaOcupacions(info[0], info[1], n);
+
+                    ctrl.prOkConsultaOcupacions(repre.get(i).nomLocal, repre.get(i).sessio.name(), n);
                 }
             }
         });
