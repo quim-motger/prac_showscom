@@ -2,16 +2,16 @@ package edu.upc.as.domain.model;
 
 import edu.upc.as.hibernate.UtilHibernate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 /**
  * Created by jmotger on 12/01/16.
  */
-@Entity
+@Entity(name = Sessio.TABLE)
+@Table(name = Sessio.TABLE)
 public class Sessio {
+
+    public static final String TABLE = "sessio";
 
     private TipusSessio sessio;
 

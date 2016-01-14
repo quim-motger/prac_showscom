@@ -7,8 +7,10 @@ import javax.persistence.*;
 /**
  * Created by jmotger on 12/01/16.
  */
-@Entity
+@Entity(name = Seient.TABLE)
+@Table(name = Seient.TABLE)
 public class Seient {
+    public static final String TABLE = "seient";
     @EmbeddedId
     private SeientPK id;
 

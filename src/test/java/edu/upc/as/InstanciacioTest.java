@@ -1,9 +1,11 @@
 package edu.upc.as;
 
 import edu.upc.as.domain.model.*;
+import edu.upc.as.hibernate.UtilHibernate;
 import org.junit.Test;
 
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 
 /**
@@ -17,6 +19,16 @@ public class InstanciacioTest {
 
     @Test
     public void test() {
+        UtilHibernate.emptyTable(SeientEnRepresentacio.TABLE);
+        UtilHibernate.emptyTable(Estrena.TABLE);
+        UtilHibernate.emptyTable(Representacio.TABLE);
+        UtilHibernate.emptyTable(Espectacle.TABLE);
+        UtilHibernate.emptyTable(Sessio.TABLE);
+        UtilHibernate.emptyTable(Seient.TABLE);
+        UtilHibernate.emptyTable(Local.TABLE);
+
+
+
         Espectacle e1 = new Espectacle("Les Miserables", 38);
         Espectacle e2 = new Espectacle("La Traviatta", 20);
 
@@ -45,6 +57,8 @@ public class InstanciacioTest {
         Representacio r3 = new Estrena(d, 19.9f, 5, l2, 8.0f, mati);
         Representacio r4 = new Representacio(d, 24.9f, 5, l2, tarda);
         Representacio r5 = new Representacio(d, 28.9f, 5, l2, nit);
+        e1.setRepresentacions(Collections.singletonList(r1));
+        UtilHibernate.update(e1);
 
         SeientEnRepresentacio sr1 = new SeientEnRepresentacio(s1, r1,null);
         SeientEnRepresentacio sr2 = new SeientEnRepresentacio(s2, r2, null);

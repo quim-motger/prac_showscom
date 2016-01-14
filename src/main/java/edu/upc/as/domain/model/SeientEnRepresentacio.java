@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity(name = SeientEnRepresentacio.TABLE)
 @Table(name = SeientEnRepresentacio.TABLE)
 public class SeientEnRepresentacio {
-    final static String TABLE = "seient_en_representacio";
+    public final static String TABLE = "seient_en_representacio";
     @EmbeddedId
     SeientEnRepresentacioPK id;
 

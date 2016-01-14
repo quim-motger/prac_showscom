@@ -18,7 +18,7 @@ import java.util.List;
 @Table(name = Representacio.TABLE)
 @Inheritance(strategy= InheritanceType.JOINED)
 public class Representacio {
-    final static String TABLE = "representacio";
+    public final static String TABLE = "representacio";
 
     @Basic
     @Column(name = "data")

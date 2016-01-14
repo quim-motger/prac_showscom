@@ -13,7 +13,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        init();
+        //init(); -> no fa falta ja que hem posat que la instanciació es mantingui
         ComprarEntradaController c = new ComprarEntradaController();
         //c.init();
         //ComprarEntradaForm form = new ComprarEntradaForm(c);

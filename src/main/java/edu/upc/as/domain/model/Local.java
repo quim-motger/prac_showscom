@@ -13,7 +13,7 @@ import javax.persistence.Id;
 
 @Entity(name = Local.TABLE)
 public class Local {
-    final static String TABLE = "local";
+    public final static String TABLE = "local";
 
     private String nom;
     private String adreca;

@@ -12,7 +12,7 @@ import java.util.Date;
 @Table(name =Estrena.TABLE)
 @PrimaryKeyJoinColumns({@PrimaryKeyJoinColumn(name = "nomlocal", referencedColumnName = "sessio"), @PrimaryKeyJoinColumn(name = "sessio", referencedColumnName = "nomlocal")})
 public class Estrena extends Representacio {
-    final static String TABLE = "estrena";
+    public final static String TABLE = "estrena";
     private float recarrec;
 
     public Estrena(Date data, float preu, int nombreSeientsLliures, Local local, float recarrec, Sessio sessio) {
