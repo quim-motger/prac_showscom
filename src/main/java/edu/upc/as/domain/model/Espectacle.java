@@ -63,7 +63,7 @@ public class Espectacle {
     public List<InfoRepresentacio> getRepresentacions(Date data) {
         List<InfoRepresentacio> reps = new LinkedList<InfoRepresentacio>();
         InfoRepresentacio info;
-        for (Representacio r : representacions) {
+        for (Representacio r : getRepresentacions()) {
             info = new InfoRepresentacio();
             if (!r.isData(data, info))
                 reps.add(info);

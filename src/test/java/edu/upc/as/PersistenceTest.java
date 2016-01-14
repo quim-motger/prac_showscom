@@ -42,7 +42,7 @@ public class PersistenceTest {
     @Test
     public void testEntrada() {
         Entrada entrada =new Entrada("test",6,new Date(),0);
-        Sessio tarda = new Sessio(TipusSessio.tarda);
+        Sessio tarda = new Sessio(TipusSessio.matí);
         Local l1 = new Local("Teatre Jove Regina 2", "Carrer de Sèneca, 22, 08006 Barcelona");
 
         Representacio r = new Representacio(new Date(),5,2,l1,tarda);
