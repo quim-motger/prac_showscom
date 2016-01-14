@@ -19,7 +19,8 @@ public class ComprarEntradaSistemaView implements ComprarEntradaView {
     }
 
     public void mostraRepresentacions(List<InfoRepresentacio> repre) {
-
+        ShowRepresentacions cc = new ShowRepresentacions(ctrl, repre);
+        c.setRootPanel(cc.getRootPanel());
     }
 
     public void mostraOcupacions(List<InfoOcupacio> ocup) {

@@ -31,7 +31,7 @@ public class ComprarEntradaController {
         else if (FactoriaCasosUs.getInstance().getCtrlConsultarRepresentacions().consultaRepresentacions(titol, data).size() == 0) {
             view.mostraMissatge("Espectacle seleccionat no té representacions");
         } else {
-            view.mostraRepresentacions(null);
+            view.mostraRepresentacions(FactoriaCasosUs.getInstance().getCtrlConsultarRepresentacions().consultaRepresentacions(titol, data));
         }
     }
 
