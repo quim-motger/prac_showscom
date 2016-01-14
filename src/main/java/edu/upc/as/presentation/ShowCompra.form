@@ -38,7 +38,10 @@
             <preferred-size width="150" height="50"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <model/>
+          <selectionMode value="0"/>
+        </properties>
       </component>
       <component id="352b5" class="javax.swing.JTextField" binding="codiBancField">
         <constraints>

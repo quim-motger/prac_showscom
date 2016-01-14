@@ -31,7 +31,6 @@ public class ComprarEntradaForm extends JFrame {
     public ComprarEntradaForm(ComprarEntradaController c)  {
         super("Comprar Entrada");
         dataField = new JDateChooser(new Date());
-        dataField.setDate(new Date());
         this.ctrl = c;
         setContentPane(rootPanel);
         pack();
