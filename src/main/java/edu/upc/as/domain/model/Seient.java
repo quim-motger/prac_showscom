@@ -27,6 +27,10 @@ public class Seient {
         UtilHibernate.save(this);
     }
 
+    public Seient(Integer fila, Integer columna, String nomLocal){
+        id = new SeientPK(fila,columna,nomLocal);
+    }
+
     public Integer getFila() {
         return id.getFila();
     }

@@ -3,6 +3,7 @@ package edu.upc.as.domain.datainterface;
 import edu.upc.as.data.CtrlEntrada;
 import edu.upc.as.data.CtrlEspectacle;
 import edu.upc.as.data.CtrlRepresentacio;
+import edu.upc.as.data.CtrlSeientEnRepresentacio;
 
 /**
  * Created by jmotger on 12/01/16.
@@ -34,7 +35,7 @@ public class DataFactory {
     }
 
     public ICtrlSeientsEnRepresentacio getCtrlSeientsEnRepresentacio() {
-        return null;
+        return new CtrlSeientEnRepresentacio();
     }
 
 }

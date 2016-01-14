@@ -24,6 +24,12 @@ public class SeientPK implements Serializable {
         this.columna = columna;
     }
 
+    public SeientPK(Integer fila, Integer columna, String nomLocal) {
+        this.fila = fila;
+        this.columna = columna;
+        this.localId = nomLocal;
+    }
+
     public Integer getFila() {
         return fila;
     }

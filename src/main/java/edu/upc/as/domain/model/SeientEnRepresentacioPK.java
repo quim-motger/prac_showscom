@@ -30,6 +30,11 @@ public class SeientEnRepresentacioPK implements Serializable {
         this.sessio = representacio.getSessio().getSessioString();
     }
 
+    public SeientEnRepresentacioPK(Integer fila, Integer columna, String nomLocal, TipusSessio sessio){
+        this.seient = new Seient(fila,columna,nomLocal);
+        this.sessio = sessio.toString();
+    }
+
     public SeientEnRepresentacioPK() {
     }
 
