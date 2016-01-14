@@ -1,14 +1,12 @@
 package edu.upc.as.presentation;
 
+import com.toedter.calendar.JDateChooser;
 import edu.upc.as.domain.controllers.FactoriaCasosUs;
-import edu.upc.as.domain.model.Espectacle;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -24,17 +22,17 @@ public class ComprarEntradaForm extends JFrame {
     private JButton cancelButton;
     private JPanel rootPanel;
     private JLabel errorMessage;
-    private JTextField dataField;
+    private JDateChooser dataField;
     private ComprarEntradaController ctrl;
     private DateFormat data;
 
+    @SuppressWarnings("unchecked")
     public ComprarEntradaForm(ComprarEntradaController c)  {
         super("Comprar Entrada");
+        dataField = new JDateChooser(new Date());
         this.ctrl = c;
         setContentPane(rootPanel);
         pack();
-        data = new SimpleDateFormat("MM/dd/yyyy");
-        dataField.setText("MM/DD/yyyy");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         DefaultListModel resultList = new DefaultListModel();
@@ -51,13 +49,8 @@ public class ComprarEntradaForm extends JFrame {
         okButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                try {
-                    Date d = data.parse(dataField.getText());
-                    ctrl.prOkConsultaRepresentacions(
-                            (String) espectaclesList.getSelectedValue(), data.parse(dataField.getText()));
-                } catch (ParseException e1) {
-                    errorMessage.setText("Format de data incorrecte (MM/dd/yyyy)");
-                }
+                ctrl.prOkConsultaRepresentacions(
+                        (String) espectaclesList.getSelectedValue(), dataField.getDate());
             }
         });
         setVisible(true);

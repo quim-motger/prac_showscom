@@ -7,7 +7,6 @@ import edu.upc.as.domain.utils.InfoRepresentacio;
 import edu.upc.as.domain.utils.InfoSeleccioSeients;
 import edu.upc.as.exception.NoHiHaRepresentacions;
 import edu.upc.as.exception.SeientsNoDisponibles;
-import edu.upc.as.exception.NoExisteixDB;
 
 import java.util.Date;
 import java.util.List;
@@ -26,7 +25,7 @@ public class ComprarEntradaController {
         view.init(this);
     }
 
-    public void prOkConsultaRepresentacions(String titol, Date data) /*throws ParseException*/ {
+    public void prOkConsultaRepresentacions(String titol, Date data)  {
         if (titol == null || titol.equals("") || data == null || data.equals("")) {
             view.mostraMissatge("Informació no seleccionada");
         }
