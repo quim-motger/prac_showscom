@@ -49,9 +49,13 @@ public class ShowRepresentacions extends FormView {
         OKButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String s = (String) representacionsList.getSelectedValue();
-                String info[] = s.split(" - ");
-                int n = (Integer) nEspectadors.getValue();
-                ctrl.prOkConsultaOcupacions(info[0],info[1], n);
+                if (s == null) {
+                    errorMessage.setText("Falta informació");
+                } else {
+                    String info[] = s.split(" - ");
+                    int n = (Integer) nEspectadors.getValue();
+                    ctrl.prOkConsultaOcupacions(info[0], info[1], n);
+                }
             }
         });
     }

@@ -23,6 +23,9 @@ public class ShowOcupacions extends FormView {
         setContentPane(rootPanel);
         pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+
+
         cancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);

@@ -4,9 +4,8 @@ import edu.upc.as.domain.model.*;
 import edu.upc.as.hibernate.UtilHibernate;
 import edu.upc.as.presentation.ComprarEntradaController;
 
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Date;
+import javax.rmi.CORBA.Util;
+import java.util.*;
 
 /**
  * Created by jmotger on 12/01/16.
@@ -50,8 +49,18 @@ public class Main {
         Representacio r3 = new Estrena(d, 19.9f, 5, l2, 8.0f, mati);
         Representacio r4 = new Representacio(d, 24.9f, 5, l2, tarda);
         Representacio r5 = new Representacio(d, 28.9f, 5, l2, nit);
-        e1.setRepresentacions(Collections.singletonList(r1));
+
+        List<Representacio> lr1 = new ArrayList<Representacio>();
+        lr1.add(r1);
+        lr1.add(r2);
+        List<Representacio> lr2 = new ArrayList<Representacio>();
+        lr2.add(r3);
+        lr2.add(r4);
+        lr2.add(r5);
+        e1.setRepresentacions(lr1);
+        e2.setRepresentacions(lr2);
         UtilHibernate.update(e1);
+        UtilHibernate.update(e2);
 
         SeientEnRepresentacio sr1 = new SeientEnRepresentacio(s1, r1,null);
         SeientEnRepresentacio sr2 = new SeientEnRepresentacio(s2, r2, null);
