@@ -4,6 +4,7 @@ import com.toedter.calendar.JDateChooser;
 import edu.upc.as.domain.controllers.FactoriaCasosUs;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
@@ -35,6 +36,7 @@ public class ComprarEntradaForm extends JFrame {
         setContentPane(rootPanel);
         pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new Dimension(600,300));
 
         DefaultListModel resultList = new DefaultListModel();
         espectaclesList.setModel(resultList);

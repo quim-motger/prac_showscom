@@ -1,6 +1,7 @@
 package edu.upc.as.presentation;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -32,6 +33,8 @@ public class ShowCompra extends JFrame{
 
         DefaultListModel resultList = new DefaultListModel();
         monedesList.setModel(resultList);
+
+        setMinimumSize(new Dimension(600,300));
 
         for (String s : canvis) resultList.addElement(s);
 

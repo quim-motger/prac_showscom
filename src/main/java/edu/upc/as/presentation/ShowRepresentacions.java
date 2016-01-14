@@ -4,6 +4,7 @@ import edu.upc.as.domain.utils.InfoRepresentacio;
 
 import javax.swing.*;
 import javax.swing.table.TableColumn;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -28,6 +29,7 @@ public class ShowRepresentacions extends JFrame {
 
         final DefaultListModel resultList = new DefaultListModel();
         representacionsList.setModel(resultList);
+        setMinimumSize(new Dimension(600,300));
 
         SpinnerNumberModel spinnerNumberModel = new SpinnerNumberModel();
         spinnerNumberModel.setValue(1);

@@ -1,6 +1,7 @@
 package edu.upc.as.presentation;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,8 +20,9 @@ public class EndView extends JFrame{
         setContentPane(rootPanel);
         pack();
 
-        message.setText("Pagament i emissió d'entrada realitzats correctament. Passi a recollir-la per la seva entitat bancària");
+        setMinimumSize(new Dimension(600,300));
 
+        message.setText("<html>Pagament i emissió d'entrada realitzats correctament.<br>Passi a recollir-la per la seva entitat bancària</html>");
         okButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 c.prOkMissatgeFi();

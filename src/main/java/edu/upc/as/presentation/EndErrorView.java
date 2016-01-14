@@ -1,6 +1,7 @@
 package edu.upc.as.presentation;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,6 +19,8 @@ public class EndErrorView extends JFrame {
         this.c = ctrl;
         setContentPane(rootPanel);
         pack();
+
+        setMinimumSize(new Dimension(600,300));
 
         message.setText("La transferència no s'ha pogut realitzar correctament");
 

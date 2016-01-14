@@ -3,6 +3,7 @@ package edu.upc.as.presentation;
 import edu.upc.as.domain.utils.InfoOcupacio;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -27,6 +28,8 @@ public class ShowOcupacions extends JFrame {
 
         DefaultListModel resultList = new DefaultListModel();
         ocupacioList.setModel(resultList);
+
+        setMinimumSize(new Dimension(600,300));
 
         for (InfoOcupacio infoOcupacio : ocup) resultList.addElement(infoOcupacio.fila + " - " + infoOcupacio.columna);
 
