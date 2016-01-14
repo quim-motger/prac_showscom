@@ -42,11 +42,15 @@ public class Main {
         Seient s9 = new Seient(2, 4, l2);
         Seient s10 = new Seient(2, 5, l2);
 
-        Representacio r1 = new Estrena(d, 25.9f, 5, l1, 5.0f, new Sessio(TipusSessio.tarda));
-        Representacio r2 = new Representacio(d, 35.9f, 5, l1, new Sessio(TipusSessio.nit));
-        Representacio r3 = new Estrena(d, 19.9f, 5, l2, 8.0f, new Sessio(TipusSessio.matí));
-        Representacio r4 = new Representacio(d, 24.9f, 5, l2, new Sessio(TipusSessio.tarda));
-        Representacio r5 = new Representacio(d, 28.9f, 5, l2, new Sessio(TipusSessio.nit));
+        Sessio  mati = new Sessio(TipusSessio.matí);
+        Sessio tarda = new Sessio(TipusSessio.tarda);
+        Sessio nit = new Sessio(TipusSessio.nit);
+
+        Representacio r1 = new Estrena(d, 25.9f, 5, l1, 5.0f, tarda);
+        Representacio r2 = new Representacio(d, 35.9f, 5, l1, nit);
+        Representacio r3 = new Estrena(d, 19.9f, 5, l2, 8.0f, mati);
+        Representacio r4 = new Representacio(d, 24.9f, 5, l2, tarda);
+        Representacio r5 = new Representacio(d, 28.9f, 5, l2, nit);
 
         SeientEnRepresentacio sr1 = new SeientEnRepresentacio(s1, null);
         SeientEnRepresentacio sr2 = new SeientEnRepresentacio(s2, null);
