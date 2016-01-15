@@ -9,15 +9,17 @@ import edu.upc.as.exception.SeientsNoDisponibles;
 
 import java.util.List;
 
-/**
- * Created by jmotger on 12/01/16.
- */
+/** Implementació de la classe CtrlConsultarOcupacio del paquet Domain Controllers. **/
 public class CtrlConsultarOcupacio {
 
+    /** Implementació de l'operació totesRepresentacions.
+     *  Retorna el títol, la data, els locals, sessions, el nombre de seients disponibles, la indicació de si és estrena i el preu de totes les representacions. **/
     public List<InfoRepresentacio> totesRepresentacions() {
         return null;
     }
 
+    /** Implementació de l'operació consultaOcupacio.
+     *  Retorna la fila i columna de tots els seients disponibles per a aquella representació. **/
     public List<InfoOcupacio> consultaOcupacio(String nomLocal, String sessio, int nombEspectadors) throws SeientsNoDisponibles {
         try {
             return DataFactory

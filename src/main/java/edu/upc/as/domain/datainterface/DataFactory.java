@@ -1,9 +1,6 @@
 package edu.upc.as.domain.datainterface;
 
-import edu.upc.as.data.CtrlEntrada;
-import edu.upc.as.data.CtrlEspectacle;
-import edu.upc.as.data.CtrlRepresentacio;
-import edu.upc.as.data.CtrlSeientEnRepresentacio;
+import edu.upc.as.data.*;
 
 /**
  * Created by jmotger on 12/01/16.
@@ -27,7 +24,7 @@ public class DataFactory {
     }
 
     public ICtrlLocal getCtrlLocal() {
-        return null;
+        return new CtrlLocal();
     }
 
     public ICtrlRepresentacio getCtrlRepresentacio() {
