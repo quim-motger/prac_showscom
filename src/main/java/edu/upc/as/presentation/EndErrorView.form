@@ -17,6 +17,7 @@
       <component id="4f939" class="javax.swing.JButton" binding="okButton" default-binding="true">
         <constraints border-constraint="South"/>
         <properties>
+          <margin top="2" left="14" bottom="2" right="14"/>
           <text value="Ok"/>
         </properties>
       </component>

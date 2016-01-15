@@ -3,10 +3,11 @@ package edu.upc.as.presentation;
 import edu.upc.as.domain.utils.InfoRepresentacio;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.Arrays;
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class ShowRepresentacions extends JFrame {
     private JSpinner nEspectadors;
     private JTable representacions;
     private ComprarEntradaController ctrl;
+    private int selectedItem;
 
     public ShowRepresentacions(ComprarEntradaController c, final List<InfoRepresentacio> repre) {
         this.repre = repre;
@@ -47,6 +49,11 @@ public class ShowRepresentacions extends JFrame {
         }
 
         representacions.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        representacions.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
+                selectedItem = representacions.getSelectedRow();
+            }
+        });
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         cancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -55,7 +62,7 @@ public class ShowRepresentacions extends JFrame {
         });
         OKButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                int i = representacions.getSelectedColumn()-2;
+                int i = selectedItem;
                 if (i <0) {
                     errorMessage.setText("No s'ha seleccionat la representació");
                 } else {
@@ -66,6 +73,14 @@ public class ShowRepresentacions extends JFrame {
             }
         });
         setVisible(true);
+        representacions.addMouseListener(new MouseAdapter() {
+        });
+        representacions.addMouseListener(new MouseAdapter() {
+        });
+        representacions.addMouseListener(new MouseAdapter() {
+        });
+        representacions.addMouseListener(new MouseAdapter() {
+        });
     }
 
     public JPanel getRootPanel() {

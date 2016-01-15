@@ -39,8 +39,6 @@ public class ShowCompra extends JFrame{
 
         setMinimumSize(new Dimension(600,300));
 
-
-
         for (String s : canvis) resultList.addElement(s);
 
         this.preu.setText(String.valueOf(Math.round(preu*100.0)/100.0));
