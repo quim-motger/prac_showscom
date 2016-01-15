@@ -1,9 +1,9 @@
 package edu.upc.as.domain.controllers;
 
-/**
- * Created by jmotger on 12/01/16.
- */
+/** Classe resultant de la implementació del patró Factoria, per a l'accés als Casos d'us. **/
 public class FactoriaCasosUs {
+
+    /** Implementació del patró Singleton. **/
     private static FactoriaCasosUs ourInstance = new FactoriaCasosUs();
     private CtrlComprarEntrada ctrlComprarEntrada;
     private CtrlConsultarOcupacio ctrlConsultarOcupacio;
@@ -12,6 +12,7 @@ public class FactoriaCasosUs {
     private FactoriaCasosUs() {
     }
 
+    /** Getters **/
     public static FactoriaCasosUs getInstance() {
         return ourInstance;
     }

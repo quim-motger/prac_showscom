@@ -1,12 +1,12 @@
 package edu.upc.as.domain.adapter;
 
-/**
- * Created by jmotger on 12/01/16.
- */
+/** Classe resultant de la implementació del patró Factoria, per a l'accés als Adaptadors. **/
 public class AdapterFactory {
 
+    /** Implementació del patró Singleton. **/
     private static AdapterFactory instance = new AdapterFactory();
 
+    /** Getters **/
     public static AdapterFactory getInstance() {
         return instance;
     }
