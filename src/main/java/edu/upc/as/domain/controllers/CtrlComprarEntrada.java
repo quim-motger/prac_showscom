@@ -14,10 +14,8 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by jmotger on 12/01/16.
- * @author David
- */
+/** Implementació de la classe CtrlComprarEntrada del paquet Domain Controllers. **/
+
 public class CtrlComprarEntrada {
 
     private String nomLocal;
@@ -26,6 +24,8 @@ public class CtrlComprarEntrada {
     private List<InfoOcupacio> seients;
     private float preu;
 
+    /** Implementació de l'operació obteEspectacles.
+     *  Retorna tots els Espectacles registrats en el sistema. **/
     public List<String> obteEspectacles() {
         return FactoriaCasosUs
                 .getInstance()
@@ -33,6 +33,8 @@ public class CtrlComprarEntrada {
                 .consultaEspectacles();
     }
 
+    /** Implementació de l'operació obteRepresentacions.
+     *  Retorna els locals, sessions, el nombre de seients disponibles, la indicació de si és estrena i el preu per totes les representacions per aquell espectacle i data. **/
     public List<InfoRepresentacio> obteRepresentacions(String titol, Date data) throws NoHiHaRepresentacions {
         List<InfoRepresentacio> inf = null;
         try {
@@ -48,6 +50,8 @@ public class CtrlComprarEntrada {
         return inf;
     }
 
+    /** Implementació de l'operació obteOcupacio.
+     *  Retorna la fila i columna de tots els seients disponibles per la representació especificada. **/
     public List<InfoOcupacio> obteOcupacio(String nomLocal, TipusSessio sessio, int nombEspectadors) throws SeientsNoDisponibles {
         this.nomLocal = nomLocal;
         this.sessio = sessio;
@@ -58,6 +62,8 @@ public class CtrlComprarEntrada {
                 .consultaOcupacio(nomLocal, sessio.name(), nombEspectadors);
     }
 
+    /** Implementació de l'operació seleccionarSeients.
+     *  Retorna el preu total de l’entrada i les monedes en les que pot demanar la conversió. **/
     public InfoSeleccioSeients seleccionarSeients(List<InfoOcupacio> seients) {
         this.seients = seients;
         try {
@@ -78,6 +84,8 @@ public class CtrlComprarEntrada {
         return info;
     }
 
+    /** Implementació de l'operació obtePreuMoneda.
+     *  Retorna el preu amb el canvi de moneda efectuat. **/
     public float obtePreuMoneda(Moneda moneda) throws Exception {
         float preu = AdapterFactory
                 .getInstance()
@@ -86,6 +94,8 @@ public class CtrlComprarEntrada {
         return preu;
     }
 
+    /** Implementació de l'operació pagament.
+     *  Si la transfarencia del preu total de l'entrada és exitosa, es crea una instància de entrada i de les seves associacions amb la representació i els seients de la representació. **/
     public void pagament(String dni, int codiB, String numCompte) throws PagamentNoAutoritzat, ServeiNoDisponible, NoExisteixDB {
         Date avui = new Date();
         int cbs = Shows.getInstance().getCodiBanc();
