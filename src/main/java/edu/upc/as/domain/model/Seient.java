@@ -12,7 +12,8 @@ public class Seient {
     @EmbeddedId
     private SeientPK id;
 
-    /** Relació 1..*->1 amb la classe Local, no es navega. **/
+    /** Relació 1..*->1 amb la classe Local, no es navega. Aquesta s'ha afegit degut a que el Hibernate
+     *  no generava bé la persistencia si no ho feia així**/
     @MapsId("localId")
     @JoinColumn(name = "nomLocal", referencedColumnName = "nom", nullable = false)
     @ManyToOne
@@ -25,6 +26,7 @@ public class Seient {
     public Seient(Integer fila, Integer columna, Local local) {
         id = new SeientPK(fila, columna);
         this.local = local;
+        //Guardem l'instancia per simular el Domain Model
         UtilHibernate.save(this);
     }
 
