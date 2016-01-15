@@ -8,9 +8,7 @@ import edu.upc.as.hibernate.UtilHibernate;
 import javax.persistence.*;
 import java.util.*;
 
-/**
- * Created by jmotger on 12/01/16.
- */
+/** Implementació de la classe Representació del paquet Domain Model. **/
 @Entity(name = Representacio.TABLE)
 @Table(name = Representacio.TABLE)
 @Inheritance(strategy= InheritanceType.JOINED)
@@ -29,17 +27,19 @@ public class Representacio {
     @Column(name = "nombreseienslliures")
     private int nombreSeientsLliures;
 
+    /** Relació *->1 amb la classe Local, navegable en el sentit Representacio->Local. **/
     @MapsId("localId")
     @ManyToOne
     @JoinColumn(name = "nomlocal", referencedColumnName = "nom", nullable = false)
     private Local local;
 
+    /** Relació *->1 amb la classe Sessió, navegable en el sentit Representacio->Sessió. **/
     @MapsId("sessioId")
     @ManyToOne
     @JoinColumn(name = "sessio", referencedColumnName = "sessio")
     private Sessio sessio;
 
-
+    /** Relació 1->1..* amb la classe SeientsEnRepresentació, navegable en el sentit Representacio->SeientsEnRepresentació. **/
     @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumns({@JoinColumn(name = "sessio", referencedColumnName = "sessio"), @JoinColumn(name = "nomlocal", referencedColumnName = "nomlocal")})
     private Set<SeientEnRepresentacio> seientsEnRepresentacio;
@@ -115,12 +115,12 @@ public class Representacio {
         return seientsEnRepresentacio;
     }
 
-    public void setSeientsEnRepresentacio(List<SeientEnRepresentacio> seientsEnRepresentacio) {
-        this.seientsEnRepresentacio = new HashSet<SeientEnRepresentacio>(seientsEnRepresentacio);
-    }
-
     public void setSeientsEnRepresentacio(Set<SeientEnRepresentacio> seientsEnRepresentacio) {
         this.seientsEnRepresentacio = seientsEnRepresentacio;
+    }
+
+    public void setSeientsEnRepresentacio(List<SeientEnRepresentacio> seientsEnRepresentacio) {
+        this.seientsEnRepresentacio = new HashSet<SeientEnRepresentacio>(seientsEnRepresentacio);
     }
 
     public RepresentacioPK getId() {

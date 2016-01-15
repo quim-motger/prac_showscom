@@ -6,16 +6,23 @@ import edu.upc.as.hibernate.UtilHibernate;
 import javax.persistence.*;
 import java.util.*;
 
-/**
- * Created by jmotger on 12/01/16.
- */
+/** Implementació de la classe Espectacle del paquet Domain Model. **/
 @Entity(name = Espectacle.TABLE)
 @Table(name = Espectacle.TABLE)
 public class Espectacle {
     public final static String TABLE = "espectacle";
 
+    @Id
+    @Column(name = "titol")
     private String titol;
+
+    @Basic
+    @Column(name = "participants")
     private int participants;
+
+    /** Relació 1->* amb la classe Representació, navegable en el sentit Espectacle->Representació. **/
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @JoinColumn(name = "titol", referencedColumnName = "titol")
     private Set<Representacio> representacions;
 
     public Espectacle(String titol, int participants) {
@@ -28,8 +35,7 @@ public class Espectacle {
     public Espectacle() {
     }
 
-    @Basic
-    @Column(name = "participants")
+
     public int getParticipants() {
         return participants;
     }
@@ -38,8 +44,6 @@ public class Espectacle {
         this.participants = participants;
     }
 
-    @Id
-    @Column(name = "titol")
     public String getTitol() {
         return titol;
     }
@@ -48,18 +52,16 @@ public class Espectacle {
         this.titol = titol;
     }
 
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-    @JoinColumn(name = "titol", referencedColumnName = "titol")
     public Set<Representacio> getRepresentacions() {
         return representacions;
     }
 
-    public void setRepresentacions(List<Representacio> representacions) {
-        this.representacions = new HashSet<Representacio>(representacions);
-    }
-
     public void setRepresentacions(Set<Representacio> representacions) {
         this.representacions = representacions;
+    }
+
+    public void setRepresentacions(List<Representacio> representacions) {
+        this.representacions = new HashSet<Representacio>(representacions);
     }
 
     public List<InfoRepresentacio> getRepresentacions(Date data) {

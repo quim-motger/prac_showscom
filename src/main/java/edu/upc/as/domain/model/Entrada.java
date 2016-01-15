@@ -9,20 +9,42 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by jmotger on 12/01/16.
- */
+/** Implementació de la classe Entrada del paquet Domain Model. **/
 @Entity(name = Entrada.TABLE)
 @Table(name = Entrada.TABLE)
 public class Entrada {
     public final static String TABLE = "entrada";
 
+    /** Clau primaria generada automaticament*/
+    @Id
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @Column(name = "identificador")
     private  String identificador;
+
+    @Basic
+    @Column(name = "dniclient")
     private  String dniClient;
+
+    @Basic
+    @Column(name = "nombreespectadors")
     private int nombEspectadors;
+
+    @Basic
+    @Column(name = "data")
     private Date data;
+
+    @Basic
+    @Column(name = "preu")
     private float preu;
+
+    /** Relació *->1 amb la classe Representació, navegable en el sentit Entrada->Representació. **/
+    @ManyToOne
+    @JoinColumns({@JoinColumn(name = "sessio", referencedColumnName = "sessio"), @JoinColumn(name = "nomlocal", referencedColumnName = "nomlocal")})
     private Representacio representacio;
+
+    /** Relació 0..1->1..* amb la classe SeientEnRepresentació, navegable en el sentit Entrada->SeientEnRepresentació. **/
+    @OneToMany(mappedBy = "entrada", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     private Set<SeientEnRepresentacio> seientsEnRepresentacio;
 
     public Entrada(String dniClient, int nombEspectadors, Date data, float preu) {
@@ -46,10 +68,7 @@ public class Entrada {
         UtilHibernate.update(this);
     }
 
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-    @Column(name = "identificador")
+
     public String getIdentificador() {
         return identificador;
     }
@@ -58,8 +77,7 @@ public class Entrada {
         this.identificador = identificador;
     }
 
-    @Basic
-    @Column(name = "dniclient")
+
     public String getDniClient() {
         return dniClient;
     }
@@ -68,8 +86,6 @@ public class Entrada {
         this.dniClient = dniClient;
     }
 
-    @Basic
-    @Column(name = "nombreespectadors")
     public int getNombEspectadors() {
         return nombEspectadors;
     }
@@ -78,8 +94,7 @@ public class Entrada {
         this.nombEspectadors = nombEspectadors;
     }
 
-    @Basic
-    @Column(name = "data")
+
     public Date getData() {
         return data;
     }
@@ -88,8 +103,7 @@ public class Entrada {
         this.data = data;
     }
 
-    @Basic
-    @Column(name = "preu")
+
     public float getPreu() {
         return preu;
     }
@@ -98,8 +112,6 @@ public class Entrada {
         this.preu = preu;
     }
 
-    @ManyToOne
-    @JoinColumns({@JoinColumn(name = "sessio", referencedColumnName = "sessio"), @JoinColumn(name = "nomlocal", referencedColumnName = "nomlocal")})
     public Representacio getRepresentacio() {
         return representacio;
     }
@@ -108,7 +120,6 @@ public class Entrada {
         this.representacio = representacio;
     }
 
-    @OneToMany(mappedBy = "entrada", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     public Set<SeientEnRepresentacio> getSeientsEnRepresentacio() {
         return seientsEnRepresentacio;
     }

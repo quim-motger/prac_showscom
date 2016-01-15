@@ -4,9 +4,7 @@ import edu.upc.as.hibernate.UtilHibernate;
 
 import javax.persistence.*;
 
-/**
- * Created by jmotger on 12/01/16.
- */
+/** Implementació de la classe Sessió del paquet Domain Model. **/
 @Entity(name = Sessio.TABLE)
 @Table(name = Sessio.TABLE)
 public class Sessio {

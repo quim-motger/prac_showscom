@@ -4,9 +4,7 @@ import edu.upc.as.hibernate.UtilHibernate;
 
 import javax.persistence.*;
 
-/**
- * Created by jmotger on 12/01/16.
- */
+/** Implementació de la classe Seient del paquet Domain Model. **/
 @Entity(name = Seient.TABLE)
 @Table(name = Seient.TABLE)
 public class Seient {
@@ -14,6 +12,7 @@ public class Seient {
     @EmbeddedId
     private SeientPK id;
 
+    /** Relació 1..*->1 amb la classe Local, no es navega. **/
     @MapsId("localId")
     @JoinColumn(name = "nomLocal", referencedColumnName = "nom", nullable = false)
     @ManyToOne

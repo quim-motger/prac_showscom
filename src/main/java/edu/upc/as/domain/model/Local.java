@@ -7,15 +7,17 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-/**
- * Created by jmotger on 12/01/16.
- */
-
+/** Implementació de la classe Local del paquet Domain Model. **/
 @Entity(name = Local.TABLE)
 public class Local {
     public final static String TABLE = "local";
 
+    @Id
+    @Column(name = "nom")
     private String nom;
+
+    @Basic
+    @Column(name = "adreça")
     private String adreca;
 
     public Local(String nom, String adreca) {
@@ -28,8 +30,6 @@ public class Local {
 
     }
 
-    @Id
-    @Column(name = "nom")
     public String getNom() {
         return nom;
     }
@@ -38,8 +38,6 @@ public class Local {
         this.nom = nom;
     }
 
-    @Basic
-    @Column(name = "adreça")
     public String getAdreca() {
         return adreca;
     }

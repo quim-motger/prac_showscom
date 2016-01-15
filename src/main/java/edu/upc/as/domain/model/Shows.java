@@ -3,11 +3,10 @@ package edu.upc.as.domain.model;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by David on 12/01/2016.
- */
+/** Implementació del Singleton Shows.com del paquet Domain Model. **/
 public class Shows {
 
+    /** Atributs del Singleton **/
     private static Shows ourInstance = new Shows();
     private final int codiBanc = -1;
     private final String numCompte = "";
@@ -15,12 +14,14 @@ public class Shows {
     private final List<Moneda> canvis = new LinkedList<Moneda>();
     private final float comissio = 0.0f;
 
+    /** Constructors **/
     private Shows() {
         canvis.add(Moneda.USD);
         canvis.add(Moneda.GBP);
 
     }
 
+    /** Getters i Setters dels atributs **/
     public static Shows getInstance() {
         return ourInstance;
     }

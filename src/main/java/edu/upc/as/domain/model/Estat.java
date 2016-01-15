@@ -1,8 +1,6 @@
 package edu.upc.as.domain.model;
 
-/**
- * Created by jmotger on 12/01/16.
- */
+/** Implementació de la enumeració Estat del paquet Domain Model. **/
 public enum Estat {
     ocupat,
     lliure
