@@ -11,12 +11,16 @@ public class SvBankService {
         if (dni.length() != 9) {
             return false;
         } else {
-            String juegoCaracteres = "TRWAGMYFPDXBNJZSQVHLCKET";
-            String s = dni.substring(0, 8);
-            int modulo = Integer.parseInt(s) % 23;
-            String letra = String.valueOf(juegoCaracteres.charAt(modulo));
-            if (letra.equals(dni.substring(8, 9))) return true;
-            else return false;
+            try {
+                String juegoCaracteres = "TRWAGMYFPDXBNJZSQVHLCKET";
+                String s = dni.substring(0, 8);
+                int modulo = Integer.parseInt(s) % 23;
+                String letra = String.valueOf(juegoCaracteres.charAt(modulo));
+                if (letra.equals(dni.substring(8, 9))) return true;
+                else return false;
+            } catch (NumberFormatException e) {
+                return false;
+            }
         }
     }
 
