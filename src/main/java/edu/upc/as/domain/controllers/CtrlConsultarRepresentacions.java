@@ -9,12 +9,11 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by jmotger on 12/01/16.
- * @author David
- */
+/** Implementació de la classe CtrlConsultarRepresentacions del paquet Domain Controllers. **/
 public class CtrlConsultarRepresentacions {
 
+    /** Implementació de l'operació consultaEspectacles.
+     *  Retorna el títol de tots els espectacles existents al sistema. **/
     public List<String> consultaEspectacles() {
         List<String> titols = new LinkedList<String>();
 
@@ -30,6 +29,8 @@ public class CtrlConsultarRepresentacions {
         return titols;
     }
 
+    /** Implementació de l'operació consultaRepresentacions.
+     *  Retorna els locals, sessions, el nombre de seients disponibles, la indicació de si és estrena i el preu per totes les representacions per aquell espectacle i data. **/
     public List<InfoRepresentacio> consultaRepresentacions(String titol, Date data) throws NoExisteixDB{
             return DataFactory
                     .getInstance()
