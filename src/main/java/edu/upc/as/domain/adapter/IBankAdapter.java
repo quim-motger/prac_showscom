@@ -6,9 +6,7 @@ import edu.upc.as.exception.ServeiNoTrobat;
 
 import java.util.Date;
 
-/**
- * Created by jmotger on 12/01/16.
- */
+/** Implementació de la interficie IBankAdapter del paquet Adapters. **/
 public interface IBankAdapter {
 
     boolean autoritza(String dni, int codiB, String numCompte, float imp, int codiBancShows, String numCompteShows, Date avui) throws ServeiNoDisponible, PagamentNoAutoritzat;

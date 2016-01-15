@@ -8,11 +8,11 @@ import edu.upc.as.exception.ServeiNoTrobat;
 
 import java.util.Date;
 
-/**
- * Created by jmotger on 12/01/16.
- */
+/** Implementació de la classe BankAdapter del paquet Adapters. **/
 public class BankAdapter implements IBankAdapter {
 
+    /** Implementació de l'operació autoritza.
+     *  Retorna cert si el servei fa la trasferencia bancaria correctament. **/
     public boolean autoritza(String dni, int codiB, String numCompte, float imp, int codiBancShows, String numCompteShows, Date avui) throws ServeiNoDisponible, PagamentNoAutoritzat {
         return ((SvBankService)ServiceLocator
                 .getInstance()
