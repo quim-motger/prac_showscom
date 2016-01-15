@@ -8,11 +8,7 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
 /**
- * Util in edu.upc.as.hibernate
- *
- * @author casassg
- * @version 1.0
- *          Creation Date: 13/01/16
+ * Classe d'utilitats de Hibernate, emmagatzema la factory
  */
 public class UtilHibernate {
 
@@ -78,6 +74,7 @@ private static final SessionFactory sessionFactory = buildSessionFactory();
 
         }
 
+        //Buida taula -> usat pel test de creació d'instanciació
         public static int emptyTable(String myTable){
             SessionFactory sf = UtilHibernate.getSessionFactory();
             Session session = sf.openSession();
